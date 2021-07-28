@@ -3,6 +3,7 @@ import makeStyles from '@material-ui/styles/makeStyles'
 import Paper from '@material-ui/core/Paper'
 import Form from './contents/form'
 import Header from './layout/Header'
+import CodeDisplay from './contents/CodeDisplay'
 
 const useStyles = makeStyles({
   page: {
@@ -26,6 +27,7 @@ function App() {
       <Header />
       <Paper className={classes.paper}>
         <Form />
+        <CodeDisplay />
       </Paper>
     </Container>
   );
