@@ -5,8 +5,8 @@
 ## Table of Contents
 
 - [Description](#description)
-- <a href="#Description">Description</a>
-- <a href="#Screenshots">Screenshots</a>
+- [Screenshots](#screenshots)
+- [Built With](#built-with)
 - <a href="#Built With">Built With</a>
 - <a href="#Getting Started">Getting Started</a>
   - <a href="#Prerequisites">Prerequisites</a>
