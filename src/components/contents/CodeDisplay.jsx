@@ -22,7 +22,12 @@ export default function CodeDisplay() {
   return(
     <Card className={classes.codeCard}>
       {textInput ?
-      <SyntaxHighlighter className={classes.codeCard} language="markdown" style={atomDark}>
+      <SyntaxHighlighter 
+        wrapLongLines={true}
+        className={classes.codeCard} 
+        language="markdown" 
+        style={atomDark}
+      >
         {textInput.code}
       </SyntaxHighlighter>
       :""}

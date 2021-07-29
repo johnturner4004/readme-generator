@@ -18,6 +18,9 @@ export default function Form() {
   const classes = useStyles();
   const dispatch = useDispatch()
   const [projectName, setProjectName] = useState('')
+  const [githubUser, setGithubUser] = useState('johnturner4004')
+  const [githubRepo, setGithubRepo] = useState('readme-generator')
+  const [linkedInId, setLinkedInId] = useState('johnturner4004')
   const test = useSelector(state => state.textInput.test);
 
   useEffect(() => {
@@ -26,7 +29,32 @@ export default function Form() {
 
   const handleBlur = () => {
     let code = (
-      `# ${projectName}`
+`![License](https://img.shields.io/github/license/${githubUser}/${githubRepo}.svg?style=for-the-badge) ![Repo Size](https://img.shields.io/github/languages/code-size/${githubUser}/${githubRepo}.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/${githubUser}/${githubRepo}.svg?style=for-the-badge) ![FORKS](https://img.shields.io/github/forks/${githubUser}/${githubRepo}.svg?style=for-the-badge&social) ![Stars](https://img.shields.io/github/stars/${githubUser}/${githubRepo}.svg?style=for-the-badge) 
+
+# ${projectName}
+
+//Table of Contents
+
+//Description
+
+//Screenshots
+
+//Built With
+
+//Getting Started
+  //Prerequisites
+
+  //Installation
+
+//Usage
+
+//License
+
+//Acknowledgements
+
+//Contacts
+
+<a href="https://www.linkedin.com/in/${linkedInId}"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>`
     );
     dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
   }
