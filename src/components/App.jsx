@@ -1,9 +1,11 @@
 import Container from '@material-ui/core/Container'
 import makeStyles from '@material-ui/styles/makeStyles'
 import Paper from '@material-ui/core/Paper'
-import Form from './contents/form'
+import Form from './contents/Form'
 import Header from './layout/Header'
 import CodeDisplay from './contents/CodeDisplay'
+import MDPreview from './contents/MDPreview'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles({
   page: {
@@ -15,6 +17,7 @@ const useStyles = makeStyles({
   paper: {
     padding: 10,
     margin: 20,
+    height: '100%',
   },
 })
 
@@ -27,7 +30,14 @@ function App() {
       <Header />
       <Paper className={classes.paper}>
         <Form />
-        <CodeDisplay />
+        <Grid container direction="row">
+          <Grid item xs={12} sm={6}>
+            <CodeDisplay />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <MDPreview />
+          </Grid>
+        </Grid>
       </Paper>
     </Container>
   );
