@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 export default function Form() {
   const classes = useStyles();
   const dispatch = useDispatch()
-  const [projectName, setProjectName] = useState('')
+  const [projectName, setProjectName] = useState('Project Name')
   const [githubUser, setGithubUser] = useState('johnturner4004')
   const [githubRepo, setGithubRepo] = useState('readme-generator')
   const [linkedInId, setLinkedInId] = useState('johnturner4004')
@@ -33,26 +33,37 @@ export default function Form() {
 
 # ${projectName}
 
-//Table of Contents
+## Table of Contents
 
-//Description
+- [Description](#description)
+- [Screenshots](#screenshots)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contacts](#contacts)
 
-//Screenshots
+## Description
 
-//Built With
+## Screenshots
 
-//Getting Started
-  //Prerequisites
+## Built With
 
-  //Installation
+## Getting Started
+  ### Prerequisites
 
-//Usage
+  ### Installation
 
-//License
+## Usage
 
-//Acknowledgements
+## License
 
-//Contacts
+## Acknowledgements
+
+## Contacts
 
 <a href="https://www.linkedin.com/in/${linkedInId}"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>`
     );
