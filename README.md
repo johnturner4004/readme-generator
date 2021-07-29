@@ -4,7 +4,6 @@
 
 ## Table of Contents
 <a href="#Description">Description</a>
-
 <a href="#Screenshots">Screenshots</a>
 
 <a href="#Built With">Built With</a>
