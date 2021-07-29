@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+<a href=https://www.linkedin.com/in/${linkedInId}><img src=https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white /></a>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
