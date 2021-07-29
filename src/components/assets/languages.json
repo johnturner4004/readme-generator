@@ -1,0 +1,10 @@
+{
+  "c": {
+    "name": "c",
+    "image": "https://img.shields.io/github/stars/johnturner4004/readme-generator.svg"
+  },
+  "cpp": {
+    "name": "cpp",
+    "image": "https://img.shields.io/github/stars/johnturner4004/readme-generator.svg"
+  }
+}

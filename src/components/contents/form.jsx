@@ -1,26 +1,31 @@
-import { Divider } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import Card from '@material-ui/core/Card'
-import { makeStyles } from '@material-ui/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import languages from '../assets/languages.json'
 
 const useStyles = makeStyles({
   formCard: {
     padding: 10,
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
 });
 
 
 export default function Form() {
   const classes = useStyles();
-  const dispatch = useDispatch()
-  const [projectName, setProjectName] = useState('Project Name')
-  const [githubUser, setGithubUser] = useState('johnturner4004')
-  const [githubRepo, setGithubRepo] = useState('readme-generator')
-  const [linkedInId, setLinkedInId] = useState('johnturner4004')
+  const dispatch = useDispatch();
+  const [projectName, setProjectName] = useState('Project Name');
+  const [githubUser, setGithubUser] = useState('johnturner4004');
+  const [githubRepo, setGithubRepo] = useState('readme-generator');
+  const [linkedInId, setLinkedInId] = useState('johnturner4004');
+  const [description, setDescription] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [imageHtml, setImageHtml] = useState('');
   const test = useSelector(state => state.textInput.test);
 
   useEffect(() => {
@@ -48,7 +53,11 @@ export default function Form() {
 
 ## Description
 
+${description}
+
 ## Screenshots
+
+${imageUrl}
 
 ## Built With
 
@@ -72,7 +81,9 @@ export default function Form() {
 
   return (
     <Card className={classes.formCard}>
-    <TextField value={projectName} onChange={(event)  => setProjectName(event.target.value)} onBlur={() => handleBlur()} label="Project name" />
+      <TextField onChange={(event)  => setProjectName(event.target.value)} onBlur={() => handleBlur()} label="Project name" />
+      <TextareaAutosize onChange={(event) => setDescription(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Description"></TextareaAutosize>
+      <TextField onChange={(event) => setImageUrl(`<img src="${event.target.value}" />`)} onBlur={() => handleBlur()} label="Image URL" />
     </Card>
   )
 }

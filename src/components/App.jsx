@@ -15,9 +15,13 @@ const useStyles = makeStyles({
     maxWidth: '100vw',
   },
   paper: {
-    padding: 10,
+    paddingBottom: 40,
+    paddingTop: 20,
     margin: 20,
     height: '100%',
+  },
+  gridContainer: {
+    padding: 10,
   },
 })
 
@@ -30,7 +34,7 @@ function App() {
       <Header />
       <Paper className={classes.paper}>
         <Form />
-        <Grid container direction="row">
+        <Grid container className={classes.gridContainer} direction="row">
           <Grid item xs={12} sm={6}>
             <CodeDisplay />
           </Grid>
