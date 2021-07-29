@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 <a href="https://www.linkedin.com/in/johnturner4004"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="https://stackoverflow.com/questions/66716288/embedding-shields-io-badge-html-in-github-readme-rst"><img src="https://img.shields.io/static/v1?label=Question&message=Unanswered&color=lightgrey&link=https://stackoverflow.com/ /></a>
+<a href="https://stackoverflow.com/questions/66716288/embedding-shields-io-badge-html-in-github-readme-rst"><img src="https://img.shields.io/static/v1?label=Question&message=Unanswered&color=lightgrey&link=https://stackoverflow.com" /></a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
