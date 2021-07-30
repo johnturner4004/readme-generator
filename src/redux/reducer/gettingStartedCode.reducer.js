@@ -1,6 +1,6 @@
-const gettingStartedCode = (state = {}, action) => {
+const gettingStartedCode = (state = '', action) => {
   switch (action.type) {
-    case 'UPDATING_GETTING_STARTED_CODE':
+    case 'UPDATE_GETTING_STARTED':
       return action.payload;
     default:
       return state;

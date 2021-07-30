@@ -50,6 +50,16 @@ export default function CodeDisplay() {
         {store.iconList}
       </SyntaxHighlighter>
       :""}
+      {store.gettingStartedCode ?
+      <SyntaxHighlighter 
+        wrapLongLines={true}
+        className={classes.codeCard} 
+        language="markdown" 
+        style={atomDark}
+      >
+        {store.gettingStartedCode}
+      </SyntaxHighlighter>
+      :""}
       </div>
     </Card>
   )
