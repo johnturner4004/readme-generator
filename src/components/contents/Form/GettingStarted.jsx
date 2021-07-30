@@ -7,6 +7,7 @@ export default function GettingStarted() {
   const [gettingStarted, setGettingStarted] = useState('In the following sections, the prerequisites that need to be installed to run this project on your computer and steps to install it are listed.');
   const [prerequisites, setPrerequisites] = useState('');
   const [installation, setInstallation] = useState('');
+  const [usage, setUsage] = useState('');
 
   const handleBlur = () => {
     let gettingStartedCode = 
@@ -22,6 +23,10 @@ ${prerequisites}
 
 ${installation}
 
+## Usage
+
+${usage}
+
 `;
     dispatch({ type: 'UPDATE_GETTING_STARTED', payload: gettingStartedCode });
   }
@@ -35,6 +40,7 @@ ${installation}
       <TextareaAutosize value={gettingStarted} onChange={(event)  => setGettingStarted(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Gettng Started" />
       <TextareaAutosize onChange={(event) => setPrerequisites(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Prerequisites" />
       <TextareaAutosize onChange={(event) => setInstallation(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Installation" />
+      <TextareaAutosize onChange={(event) => setUsage(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Usage" />
     </>
   )
 }

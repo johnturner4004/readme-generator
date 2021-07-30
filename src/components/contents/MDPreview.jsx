@@ -12,7 +12,6 @@ const useStyles = makeStyles({
   },
 });
 
-
 export default function MDPreview() {
   const classes = useStyles();
   const store = useSelector(store => store);
