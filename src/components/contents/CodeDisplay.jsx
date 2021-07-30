@@ -1,9 +1,8 @@
 import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/styles';
+import { useSelector } from 'react-redux';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
   codeCard: {
@@ -17,7 +16,6 @@ const useStyles = makeStyles({
 export default function CodeDisplay() {
   const classes = useStyles();
   const textInput = useSelector(state => state.textInput);
-  const dispatch = useDispatch();
 
   return(
     <Card className={classes.codeCard}>

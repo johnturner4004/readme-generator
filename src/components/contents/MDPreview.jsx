@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import ReactMarkdown from "react-markdown";
 import Card from "@material-ui/core/Card";
 import makeStyles from "@material-ui/styles/makeStyles";
-import rehypeRaw from 'rehype-raw'
+import ReactMarkdown from "react-markdown";
+import { useSelector } from "react-redux";
+import rehypeRaw from 'rehype-raw';
 
 const useStyles = makeStyles({
   previewCard: {

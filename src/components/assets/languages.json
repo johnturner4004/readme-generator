@@ -1,10 +1,12 @@
-{
-  "c": {
+[
+  {
+    "id" : "0",
     "name": "c",
-    "image": "https://img.shields.io/github/stars/johnturner4004/readme-generator.svg"
+    "image": "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg"
   },
-  "cpp": {
+  {
+    "id" : "1",
     "name": "cpp",
-    "image": "https://img.shields.io/github/stars/johnturner4004/readme-generator.svg"
+    "image": "https://raw.githubusercontent.com/devicons/devicon/9f4f5cdb393299a81125eb5127929ea7bfe42889/icons/cplusplus/cplusplus-original.svg"
   }
-}
+]
