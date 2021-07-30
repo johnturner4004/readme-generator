@@ -10,6 +10,7 @@ import Languages from '../../assets/languages.json';
 import ProjectOverview from './ProjectOverview';
 import Shields from './Shields';
 import TechList from './TechList';
+import GettingStarted from './GettingStarted';
 
 const useStyles = makeStyles({
   formCard: {
@@ -33,13 +34,7 @@ export default function Form() {
 //shields
 //project overview
 //built with
-`## Getting Started
-
-### Prerequisites
-
-### Installation
-
-## Usage
+`## Usage
 
 ## License
 
@@ -61,6 +56,7 @@ dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
       <ProjectOverview /><br />
       <Shields /><br />
       <TechList /><br />
+      <GettingStarted /><br />
       <TextField onChange={(event)  => setLinkedInId(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn Username" />
       
       {JSON.stringify(techIcon)}
