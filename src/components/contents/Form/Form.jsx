@@ -6,8 +6,9 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
 import makeStyles from '@material-ui/styles/makeStyles';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import Languages from '../assets/languages.json';
+import { useDispatch, useSelector } from 'react-redux';
+import Languages from '../../assets/languages.json';
+import Shields from './Shields'
 
 const useStyles = makeStyles({
   formCard: {
@@ -27,18 +28,17 @@ export default function Form() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [projectName, setProjectName] = useState('Project Name');
-  const [githubUser, setGithubUser] = useState('johnturner4004');
-  const [githubRepo, setGithubRepo] = useState('readme-generator');
   const [linkedInId, setLinkedInId] = useState('johnturner4004');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [techIcon, setTechIcon] = useState([]);
+  const techIcon = useSelector(state => state.iconList);
+
 
   const handleBlur = () => {
     let code = (
-`![License](https://img.shields.io/github/license/${githubUser}/${githubRepo}.svg?style=for-the-badge) ![Repo Size](https://img.shields.io/github/languages/code-size/${githubUser}/${githubRepo}.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/${githubUser}/${githubRepo}.svg?style=for-the-badge) ![FORKS](https://img.shields.io/github/forks/${githubUser}/${githubRepo}.svg?style=for-the-badge&social) ![Stars](https://img.shields.io/github/stars/${githubUser}/${githubRepo}.svg?style=for-the-badge) 
+ 
 
-# ${projectName}
+`# ${projectName}
 
 ## Table of Contents
 
@@ -46,8 +46,8 @@ export default function Form() {
 - [Screenshots](#screenshots)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -80,37 +80,46 @@ ${techIcon}
 ## Contacts
 
 <a href="https://www.linkedin.com/in/${linkedInId}"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>`
-      );
-      dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
-    }
-    
-    function handleChange(event) {
-      console.log(`checked = ${checked}`);
-      let i = checked.indexOf(event.target.name);
-      console.log(`i = ${i}`);
-      if (i === -1) {
-        setChecked([...checked, event.target.name]);
-      } else {
-        let temp = []
-        for (let j = 0; j < checked.length; j++) {
-          if (j !== i) {
-            temp.push(checked[j])
-          }
-          setChecked(temp)
-          console.log(`temp = ${temp}`)
+);
+dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
+}
+  
+  function handleChange(event) {
+    let i = checked.indexOf(event.target.name);
+    if (i === -1) {
+      setChecked([...checked, event.target.name]);
+      makeTechTag([...checked, event.target.name]);
+    } else {
+      let temp = [];
+      for (let j = 0; j < checked.length; j++) {
+        if (j !== i) {
+          temp.push(checked[j]);
         }
+        setChecked(temp);
+        makeTechTag(temp);
       }
     }
-    
-    useEffect(() => {
-      handleBlur()
-    }, []);
+    handleBlur();
+  }
+  
+  const makeTechTag = (indexArr) => {
+    let tagList = '';
+    for (let i = 0; i < indexArr.length; i++) {
+      let link = Languages[Number(indexArr[i])].image;
+      tagList += `<img src="${link}" height="40" width="40" />`;
+      console.log(link, tagList);
+    }
+    dispatch ({ type: 'UPDATE_ICONS' , payload: tagList });
+  }
+  
+  useEffect(() => {
+    handleBlur()
+  }, []);
 
-    return (
-      <Card className={classes.formCard}>
+  return (
+    <Card className={classes.formCard}>
+      <Shields />
       <TextField onChange={(event)  => setProjectName(event.target.value)} onBlur={() => handleBlur()} label="Project name" />
-      <TextField onChange={(event)  => setGithubUser(event.target.value)} onBlur={() => handleBlur()} label="Github Username" />
-      <TextField onChange={(event)  => setGithubRepo(event.target.value)} onBlur={() => handleBlur()} label="Github Repository Name" />
       <TextField onChange={(event)  => setLinkedInId(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn Username" />
       <TextareaAutosize onChange={(event) => setDescription(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Description"></TextareaAutosize>
       <TextField onChange={(event) => setImageUrl(`<img src="${event.target.value}" />`)} onBlur={() => handleBlur()} label="Image URL" />
@@ -129,7 +138,7 @@ ${techIcon}
           </div>
       )})}
       </FormControl>
-      {JSON.stringify(checked)}
+      {JSON.stringify(techIcon)}
     </Card>
   )
 }

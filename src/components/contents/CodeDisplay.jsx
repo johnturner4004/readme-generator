@@ -15,18 +15,18 @@ const useStyles = makeStyles({
 
 export default function CodeDisplay() {
   const classes = useStyles();
-  const textInput = useSelector(state => state.textInput);
+  const store = useSelector(store => store);
 
   return(
     <Card className={classes.codeCard}>
-      {textInput ?
+      {store.shieldCode ?
       <SyntaxHighlighter 
         wrapLongLines={true}
         className={classes.codeCard} 
         language="markdown" 
         style={atomDark}
       >
-        {textInput.code}
+        {store.shieldCode}
       </SyntaxHighlighter>
       :""}
     </Card>

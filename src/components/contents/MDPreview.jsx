@@ -15,12 +15,12 @@ const useStyles = makeStyles({
 
 export default function MDPreview() {
   const classes = useStyles();
-  const textInput = useSelector(store => store.textInput);
+  const store = useSelector(store => store);
 
   return (
     <Card className={classes.previewCard}>
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {textInput.code}
+        {store.shieldCode}
       </ReactMarkdown>
     </Card>
   );
