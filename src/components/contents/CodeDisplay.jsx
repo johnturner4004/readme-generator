@@ -19,6 +19,7 @@ export default function CodeDisplay() {
 
   return(
     <Card className={classes.codeCard}>
+      <div>
       {store.shieldCode ?
       <SyntaxHighlighter 
         wrapLongLines={true}
@@ -29,6 +30,17 @@ export default function CodeDisplay() {
         {store.shieldCode}
       </SyntaxHighlighter>
       :""}
+      {store.overviewCode ?
+      <SyntaxHighlighter 
+        wrapLongLines={true}
+        className={classes.codeCard} 
+        language="markdown" 
+        style={atomDark}
+      >
+        {store.overviewCode}
+      </SyntaxHighlighter>
+      :""}
+      </div>
     </Card>
   )
 }

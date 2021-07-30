@@ -22,6 +22,9 @@ export default function MDPreview() {
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {store.shieldCode}
       </ReactMarkdown>
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+        {store.overviewCode}
+      </ReactMarkdown>
     </Card>
   );
 }

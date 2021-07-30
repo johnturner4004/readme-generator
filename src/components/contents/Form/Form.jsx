@@ -2,13 +2,13 @@ import Card from '@material-ui/core/Card';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
 import makeStyles from '@material-ui/styles/makeStyles';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Languages from '../../assets/languages.json';
-import Shields from './Shields'
+import ProjectOverview from './ProjectOverview';
+import Shields from './Shields';
 
 const useStyles = makeStyles({
   formCard: {
@@ -27,39 +27,16 @@ export default function Form() {
   const [checked, setChecked] = useState([]);
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [projectName, setProjectName] = useState('Project Name');
   const [linkedInId, setLinkedInId] = useState('johnturner4004');
-  const [description, setDescription] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
   const techIcon = useSelector(state => state.iconList);
 
 
   const handleBlur = () => {
     let code = (
  
-
-`# ${projectName}
-
-## Table of Contents
-
-- [Description](#description)
-- [Screenshots](#screenshots)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
-- [Contacts](#contacts)
-
-## Description
-
-${description}
-
-## Screenshots
-
-${imageUrl}
+//shields
+//project overview
+`
 
 ## Built With
 
@@ -118,11 +95,9 @@ dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
 
   return (
     <Card className={classes.formCard}>
+      <ProjectOverview />
       <Shields />
-      <TextField onChange={(event)  => setProjectName(event.target.value)} onBlur={() => handleBlur()} label="Project name" />
       <TextField onChange={(event)  => setLinkedInId(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn Username" />
-      <TextareaAutosize onChange={(event) => setDescription(event.target.value)} onBlur={() => handleBlur()} minRows={5} placeholder="Description"></TextareaAutosize>
-      <TextField onChange={(event) => setImageUrl(`<img src="${event.target.value}" />`)} onBlur={() => handleBlur()} label="Image URL" />
       <FormControl>
       {Languages.map(language => {
         return (
