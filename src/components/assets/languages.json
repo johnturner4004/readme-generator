@@ -1,12 +1,188 @@
 [
   {
-    "id" : "0",
-    "name": "c",
-    "image": "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg"
+    "id": 0,
+    "name": "Android",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg",
+    "url": "https://www.android.com/"
   },
   {
-    "id" : "1",
-    "name": "cpp",
-    "image": "https://raw.githubusercontent.com/devicons/devicon/9f4f5cdb393299a81125eb5127929ea7bfe42889/icons/cplusplus/cplusplus-original.svg"
+    "id": 1,
+    "name": "Apple",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg",
+    "url": "https://www.apple.com"
+  },
+  {
+    "id": 2,
+    "name": "C",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg",
+    "url": "https://www.w3schools.in/c-tutorial/"
+  },
+  {
+    "id": 3,
+    "name": "C#",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg",
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/"
+  },
+  {
+    "id": 4,
+    "name": "C++",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
+    "url": "https://www.w3schools.in/category/cplusplus-tutorial/"
+  },
+  {
+    "id": 5,
+    "name": "CSS3",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+    "url": "https://www.w3schools.com/w3css/defaulT.asp"
+  },
+  {
+    "id": 6,
+    "name": "Flask",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg",
+    "url": "https://flask.palletsprojects.com/en/2.0.x/"
+  },
+  {
+    "id": 7,
+    "name": "Gatsby",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/gatsby/gatsby-original.svg",
+    "url": "https://www.gatsbyjs.com/"
+  },
+  {
+    "id": 8,
+    "name": "GraphQL",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain.svg",
+    "url": "https://graphql.org/"
+  },
+  {
+    "id": 9,
+    "name": "Heroku",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg",
+    "url": "https://www.heroku.com/"
+  },
+  {
+    "id": 10,
+    "name": "HTML5",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+    "url": "https://www.w3schools.com/html/"
+  },
+  {
+    "id": 11,
+    "name": "Java",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
+    "url": "https://www.w3schools.com/java/"
+  },
+  {
+    "id": 12,
+    "name": "JavaScript",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+    "url": "https://www.w3schools.com/js/default.asp"
+  },
+  {
+    "id": 13,
+    "name": "Jest",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/jest/jest-plain.svg",
+    "url": "https://jestjs.io/"
+  },
+  {
+    "id": 14,
+    "name": "jQuery",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original.svg",
+    "url": "https://jquery.com/"
+  },
+  {
+    "id": 15,
+    "name": "Kotlin",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg",
+    "url": "https://kotlinlang.org/"
+  },
+  {
+    "id": 16,
+    "name": "Linux",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg",
+    "url": "https://en.wikipedia.org/wiki/Linux"
+  },
+  {
+    "id": 17,
+    "name": "Material-UI",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg",
+    "url": "https://material-ui.com/"
+  },
+  {
+    "id": 18,
+    "name": "MongoDB",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+    "url": "https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_americas_united_states_search_core_brand_atlas_desktop&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624338&gclid=CjwKCAjwxo6IBhBKEiwAXSYBs9hYA2G9r_y_aP7iCCZPlFMhVm4TP9y5rny-tzfs_zJoE6yB5Nku2xoC5NcQAvD_BwE"
+  },
+  {
+    "id": 19,
+    "name": "Node.js",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
+    "url": "https://nodejs.org/en/"
+  },
+  {
+    "id": 20,
+    "name": "PostgreSQL",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
+    "url": "https://www.postgresql.org/"
+  },
+  {
+    "id": 21,
+    "name": "Python",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+    "url": "https://www.python.org/"
+  },
+  {
+    "id": 22,
+    "name": "Rails",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg",
+    "url": "https://rubyonrails.org/"
+  },
+  {
+    "id": 23,
+    "name": "React",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+    "url": "https://reactjs.org/"
+  },
+  {
+    "id": 24,
+    "name": "React Native",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+    "url": "https://reactnative.dev/"
+  },
+  {
+    "id": 25,
+    "name": "Redux",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg",
+    "url": "https://redux.js.org/"
+  },
+  {
+    "id": 26,
+    "name": "SASS",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg",
+    "url": "https://sass-lang.com/"
+  },
+  {
+    "id": 27,
+    "name": "Swift",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg",
+    "url": "https://developer.apple.com/swift/"
+  },
+  {
+    "id": 28,
+    "name": "SwiftUI",
+    "icon": "https://img.icons8.com/fluent/100/000000/swiftui.png",
+    "url": "https://developer.apple.com/xcode/swiftui/"
+  },
+  {
+    "id": 29,
+    "name": "TypeScript",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+    "url": "https://www.typescriptlang.org/"
+  },
+  {
+    "id": 30,
+    "name": "Vue.js",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg",
+    "url": "https://vuejs.org/"
   }
 ]

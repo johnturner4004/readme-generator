@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Languages from '../../assets/languages.json';
 import ProjectOverview from './ProjectOverview';
 import Shields from './Shields';
+import TechList from './TechList';
 
 const useStyles = makeStyles({
   formCard: {
@@ -16,15 +17,10 @@ const useStyles = makeStyles({
     marginLeft: 20,
     marginRight: 20,
   },
-  techList: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
 });
 
 
 export default function Form() {
-  const [checked, setChecked] = useState([]);
   const classes = useStyles();
   const dispatch = useDispatch();
   const [linkedInId, setLinkedInId] = useState('johnturner4004');
@@ -36,13 +32,8 @@ export default function Form() {
  
 //shields
 //project overview
-`
-
-## Built With
-
-${techIcon}
-
-## Getting Started
+//built with
+`## Getting Started
 
 ### Prerequisites
 
@@ -61,58 +52,17 @@ ${techIcon}
 dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
 }
   
-  function handleChange(event) {
-    let i = checked.indexOf(event.target.name);
-    if (i === -1) {
-      setChecked([...checked, event.target.name]);
-      makeTechTag([...checked, event.target.name]);
-    } else {
-      let temp = [];
-      for (let j = 0; j < checked.length; j++) {
-        if (j !== i) {
-          temp.push(checked[j]);
-        }
-        setChecked(temp);
-        makeTechTag(temp);
-      }
-    }
-    handleBlur();
-  }
-  
-  const makeTechTag = (indexArr) => {
-    let tagList = '';
-    for (let i = 0; i < indexArr.length; i++) {
-      let link = Languages[Number(indexArr[i])].image;
-      tagList += `<img src="${link}" height="40" width="40" />`;
-      console.log(link, tagList);
-    }
-    dispatch ({ type: 'UPDATE_ICONS' , payload: tagList });
-  }
-  
   useEffect(() => {
     handleBlur()
   }, []);
 
   return (
     <Card className={classes.formCard}>
-      <ProjectOverview />
-      <Shields />
+      <ProjectOverview /><br />
+      <Shields /><br />
+      <TechList /><br />
       <TextField onChange={(event)  => setLinkedInId(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn Username" />
-      <FormControl>
-      {Languages.map(language => {
-        return (
-          <div className={classes.techList} key={language.id}>
-            <img src={language.image} alt={language.name} />
-            <FormControlLabel 
-              control={<Checkbox color="primary" 
-                onChange={handleChange} 
-                name={language.id} 
-              />} 
-              label={language.name} 
-            />
-          </div>
-      )})}
-      </FormControl>
+      
       {JSON.stringify(techIcon)}
     </Card>
   )
