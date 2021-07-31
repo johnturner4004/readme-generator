@@ -65,16 +65,16 @@
   {
     "id": 9,
     "name": "GNU General Public License v2.0",
-    "icon": "",
+    "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/gpl.svg",
     "url": "https://opensource.org/licenses/GPL-2.0",
-    "inactive": ""
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/gpl-grey.svg"
   },
   {
     "id": 10,
     "name": "GNU Lesser General Public License v2.1",
-    "icon": "",
+    "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/lgpl.svg",
     "url": "https://opensource.org/licenses/LGPL-2.1",
-    "inactive": ""
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/lgpl-grey.svg"
   },
   {
     "id": 11,

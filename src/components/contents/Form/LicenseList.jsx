@@ -28,12 +28,13 @@ export default function LicenseList() {
             key={item.id} 
             value={item.id} 
             control={
-              <Radio 
+              <Radio
+                color="primary" 
                 checkedIcon={
-                  item.icon ? <img src={item.icon} height="24pt"/> : ''
+                  <img src={item.icon} height="48px"/>
                 }
                 icon={
-                  item.icon ? <img src={item.inactive} height="24pt"/> : ''
+                  <img src={item.inactive} height="48px"/>
                 } 
               />
             } 
