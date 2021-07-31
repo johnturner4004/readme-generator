@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="128pt"
+   height="66pt"
+   viewBox="0 0 128 66"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="mit-grey.svg"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="6.6972656"
+     inkscape:cx="135.35375"
+     inkscape:cy="49.945757"
+     inkscape:window-width="1312"
+     inkscape:window-height="997"
+     inkscape:window-x="49"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="surface1" />
+  <g
+     id="surface1">
+    <path
+       style="fill-rule:nonzero;fill:#cccccc;fill-opacity:1;stroke-width:35;stroke-linecap:butt;stroke-linejoin:miter;stroke:#cccccc;stroke-opacity:1;stroke-miterlimit:4"
+       d="M 17.495911 0 L 17.495911 166 M 74.499664 0 L 74.499664 112.995147 M 131.503418 0 L 131.503418 166 M 188.497375 0 L 188.497375 33.001539 M 246.500336 53.004853 L 246.500336 166 "
+       id="path9"
+       transform="matrix(0.398754,0,0,0.39759,0,0)" />
+    <path
+       style="fill:none;stroke-width:35;stroke-linecap:butt;stroke-linejoin:miter;stroke:#cccccc;stroke-opacity:1;stroke-miterlimit:4"
+       d="M 188.497375 53.004853 L 188.497375 166 "
+       transform="matrix(0.398754,0,0,0.39759,0,0)"
+       id="path11" />
+    <path
+       style="fill:#cccccc;stroke-width:33;stroke-linecap:butt;stroke-linejoin:miter;stroke:#cccccc;stroke-opacity:1;stroke-miterlimit:4;fill-opacity:1"
+       d="M 229.004425 16.495857 L 321 16.495857 "
+       id="path13"
+       transform="matrix(0.398754,0,0,0.39759,0,0)" />
+  </g>
+</svg>
