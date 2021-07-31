@@ -30,10 +30,10 @@ export default function TechList() {
   const [checked, setChecked] = useState([]);
 
   function handleChange(event) {
-    let i = checked.indexOf(event.target.name);
+    let i = checked.indexOf(event.target.value);
     if (i === -1) {
-      setChecked(([...checked, event.target.name]).sort((a, b) => a - b));
-      makeTechTag(([...checked, event.target.name]).sort((a, b) => a - b));
+      setChecked(([...checked, event.target.value]).sort((a, b) => a - b));
+      makeTechTag(([...checked, event.target.value]).sort((a, b) => a - b));
     } else {
       let temp = [];
       for (let j = 0; j < checked.length; j++) {
@@ -72,7 +72,7 @@ ${tagList}`;
             <FormControlLabel 
               control={<Checkbox color="primary" 
                 onChange={handleChange} 
-                name={language.id} 
+                value={language.id} 
               />} 
               label={language.name} 
             />

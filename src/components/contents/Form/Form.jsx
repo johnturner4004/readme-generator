@@ -8,6 +8,7 @@ import ProjectOverview from './ProjectOverview';
 import Shields from './Shields';
 import TechList from './TechList';
 import Divider from '@material-ui/core/Divider';
+import LicenseList from './LicenseList';
 
 const useStyles = makeStyles({
   formCard: {
@@ -60,6 +61,8 @@ dispatch({ type: 'UPDATE_TEXT' , payload: { code: code } })
       <TechList />
       <Divider className={classes.divider} />
       <GettingStarted />
+      <Divider className={classes.divider} />
+      <LicenseList />
       <Divider className={classes.divider} />
       <TextField onChange={(event)  => setLinkedInId(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn Username" />
     </Card>
