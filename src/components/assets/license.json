@@ -3,78 +3,91 @@
     "id": 0,
     "name": "Apache License 2.0",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/apache.svg",
-    "url": "https://choosealicense.com/licenses/apache-2.0/"
+    "url": "https://choosealicense.com/licenses/apache-2.0/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/apache-grey.svg"
   },
   {
     "id": 1,
     "name": "GNU General Public License v3.0",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/gpl3.svg",
-    "url": "https://choosealicense.com/licenses/gpl-3.0/"
+    "url": "https://choosealicense.com/licenses/gpl-3.0/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/gpl3-grey.svg"
   },
   {
     "id": 2,
     "name": "MIT License",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mit.svg",
-    "url": "https://choosealicense.com/licenses/mit/"
+    "url": "https://choosealicense.com/licenses/mit/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mit-grey.svg"
   },
   {
     "id": 3,
     "name": "BSD 2-Clause License",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/bsd-wordmark.svg",
-    "url": "https://opensource.org/licenses/BSD-2-Clause"
+    "url": "https://opensource.org/licenses/BSD-2-Clause",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/bsd-wordmark-grey.svg"
   },
   {
     "id": 4,
     "name": "BSD 3-Clause License",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/bsd-wordmark.svg",
-    "url": "https://opensource.org/licenses/BSD-3-Clause"
+    "url": "https://opensource.org/licenses/BSD-3-Clause",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/bsd-wordmark-grey.svg"
   },
   {
     "id": 5,
     "name": "Boost Software License 1.0",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/boost.svg",
-    "url": "https://choosealicense.com/licenses/bsl-1.0/"
+    "url": "https://choosealicense.com/licenses/bsl-1.0/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/boost-grey.svg"
   },
   {
     "id": 6,
     "name": "Creative Commons Zero v1.0 Universal",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/cczero.svg",
-    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/cczero-grey.svg"
   },
   {
     "id": 7,
     "name": "Eclipse License 2.0",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/eclipse-foundation.svg",
-    "url": "https://opensource.org/licenses/EPL-2.0"
+    "url": "https://opensource.org/licenses/EPL-2.0",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/eclipse-foundation-grey.svg"
   },
   {
     "id": 8,
     "name": "GNU Affero General Public License v3.0",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/agpl3.svg",
-    "url": "https://choosealicense.com/licenses/agpl-3.0/"
+    "url": "https://choosealicense.com/licenses/agpl-3.0/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/agpl3-grey.svg"
   },
   {
     "id": 9,
     "name": "GNU General Public License v2.0",
     "icon": "",
-    "url": "https://opensource.org/licenses/GPL-2.0"
+    "url": "https://opensource.org/licenses/GPL-2.0",
+    "inactive": ""
   },
   {
     "id": 10,
     "name": "GNU Lesser General Public License v2.1",
     "icon": "",
-    "url": "https://opensource.org/licenses/LGPL-2.1"
+    "url": "https://opensource.org/licenses/LGPL-2.1",
+    "inactive": ""
   },
   {
     "id": 11,
     "name": "Mozilla Public License 2.0",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mozilla.svg",
-    "url": "https://choosealicense.com/licenses/mpl-2.0/"
+    "url": "https://choosealicense.com/licenses/mpl-2.0/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mozilla-grey.svg"
   },
   {
     "id": 12,
     "name": "The Unlicense",
     "icon": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/unlicense.svg",
-    "url": "https://choosealicense.com/licenses/unlicense/"
+    "url": "https://choosealicense.com/licenses/unlicense/",
+    "inactive": "https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/unlicense-grey.svg"
   }
 ]
