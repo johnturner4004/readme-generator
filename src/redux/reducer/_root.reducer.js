@@ -5,6 +5,7 @@ import overviewCode from './overviewCode.reducer';
 import shieldCode from './shieldCode.reducer';
 import textInput from './textInput.reducer';
 import licenseCode from './licenseCode.reducer';
+import conclusionCode from './conclusionCode.reducer';
 
 const rootReducer = combineReducers({
   gettingStartedCode,
