@@ -1,15 +1,14 @@
 import Card from '@material-ui/core/Card';
-import TextField from '@material-ui/core/TextField';
+import Divider from '@material-ui/core/Divider';
 import makeStyles from '@material-ui/styles/makeStyles';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import Conclusion from './Conclusion';
 import GettingStarted from './GettingStarted';
+import LicenseList from './LicenseList';
 import ProjectOverview from './ProjectOverview';
 import Shields from './Shields';
 import TechList from './TechList';
-import Divider from '@material-ui/core/Divider';
-import LicenseList from './LicenseList';
-import Conclusion from './Conclusion';
 
 const useStyles = makeStyles({
   formCard: {

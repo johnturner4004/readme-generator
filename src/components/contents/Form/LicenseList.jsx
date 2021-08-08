@@ -21,8 +21,11 @@ export default function LicenseList() {
     let licenseIcon = license[index].icon;
     let licenseLink = license[index].url;
     let licenseName = license[index].name;
-    let licenseTag = `<a src=${licenseLink}><img src=${licenseIcon} />${licenseName}</a>`
-    dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
+    let licenseTag = `
+## License
+
+<a src="${licenseLink}"><img src="${licenseIcon}" />${licenseName}</a>`
+dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
   }
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-const licenseCode = (state = {}, action) => {
+const licenseCode = (state = '', action) => {
   switch (action.type) {
     case 'UPDATE_LICENSE':
       return action.payload;

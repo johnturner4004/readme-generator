@@ -60,6 +60,16 @@ export default function CodeDisplay() {
         {store.gettingStartedCode}
       </SyntaxHighlighter>
       :""}
+      {store.licenseCode ?
+      <SyntaxHighlighter
+        wrapLongLines={true}
+        className={classes.licenseCode}
+        language="markdown"
+        style={atomDark}
+      >
+        {store.licenseCode}
+      </SyntaxHighlighter>
+      :""}
       </div>
     </Card>
   )
