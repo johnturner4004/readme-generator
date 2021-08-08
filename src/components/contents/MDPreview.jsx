@@ -30,6 +30,9 @@ export default function MDPreview() {
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {store.gettingStartedCode}
       </ReactMarkdown>
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+        {store.licenseCode}
+      </ReactMarkdown>
     </Card>
   );
 }
