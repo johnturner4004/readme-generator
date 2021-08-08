@@ -36,9 +36,8 @@ export default function Form() {
 //project overview
 //built with
 // Usage
+// License
 `
-## License
-
 ## Acknowledgements
 
 ## Contacts
