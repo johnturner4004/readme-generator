@@ -4,15 +4,30 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 export default function LicenseList() {
+  const dispatch = useDispatch()
   const [selected, setSelected] = useState(2);
 
   const handleChange = (event) => {
     console.log(event.target.value);
     setSelected(Number(event.target.value));
+    makeLicenseTag(Number(event.target.value))
   }
+
+  const makeLicenseTag = (index) => {
+    let licenseIcon = license[index].icon;
+    let licenseLink = license[index].url;
+    let licenseName = license[index].name;
+    let licenseTag = `<a src=${licenseLink}><img src=${licenseIcon} />${licenseName}</a>`
+    dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
+  }
+
+  useEffect(() => {
+    makeLicenseTag(selected);
+  }, []);
 
   return(
     <FormControl component="fieldset">
