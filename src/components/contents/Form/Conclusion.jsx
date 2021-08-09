@@ -29,6 +29,7 @@ export default function Conclusion() {
 
   const handleBlur = () => {
     const conclusionCode = `
+
 ## Acknowledgements
 
 ${acknowledgement}
