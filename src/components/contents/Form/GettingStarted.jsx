@@ -1,8 +1,7 @@
 import { TextField } from "@material-ui/core";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
   spacing: {
@@ -27,7 +26,7 @@ export default function GettingStarted() {
 
   const handleBlur = () => {
     let gettingStartedCode = `
-    
+
 ## Getting Started
 
 ${gettingStarted}

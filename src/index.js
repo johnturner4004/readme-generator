@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger';
+import App from './components/App';
+import './index.css';
 import rootReducer from './redux/reducer/_root.reducer';
-import logger from 'redux-logger'
+import reportWebVitals from './reportWebVitals';
 
 const store = createStore(
   rootReducer,

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
-import makeStyles from'@material-ui/styles/makeStyles';
+import makeStyles from '@material-ui/styles/makeStyles';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
   column: {

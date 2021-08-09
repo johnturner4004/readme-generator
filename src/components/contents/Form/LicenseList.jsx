@@ -1,12 +1,12 @@
-import license from '../../assets/license.json'
 import FormControl from '@material-ui/core/FormControl'
-import FormLabel from '@material-ui/core/FormLabel'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import RadioGroup from '@material-ui/core/RadioGroup'
+import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import makeStyles from '@material-ui/core/styles/makeStyles'
+import license from '../../assets/license.json'
 
 const useStyles = makeStyles(() => ({
   rows: {

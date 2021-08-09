@@ -1,10 +1,10 @@
-import Languages from '../../assets/languages.json';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { makeStyles } from '@material-ui/styles';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { makeStyles } from '@material-ui/styles';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Languages from '../../assets/languages.json';
 
 const useStyles = makeStyles({
   techList: {

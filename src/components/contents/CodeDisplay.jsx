@@ -21,60 +21,6 @@ export default function CodeDisplay() {
   return(
     <Card className={classes.codeCard}>
       <div>
-      {/* {store.shieldCode ?
-      <SyntaxHighlighter 
-        wrapLongLines={true}
-        language="markdown" 
-        style={atomDark}
-      >
-        {store.shieldCode}
-      </SyntaxHighlighter>
-      :""}
-      {store.overviewCode ?
-      <SyntaxHighlighter 
-        wrapLongLines={true}
-        language="markdown" 
-        style={atomDark}
-      >
-        {store.overviewCode}
-      </SyntaxHighlighter>
-      :""}
-      {store.iconList ?
-      <SyntaxHighlighter 
-        wrapLongLines={true}
-        language="markdown" 
-        style={atomDark}
-      >
-        {store.iconList}
-      </SyntaxHighlighter>
-      :""}
-      {store.gettingStartedCode ?
-      <SyntaxHighlighter 
-        wrapLongLines={true}
-        language="markdown" 
-        style={atomDark}
-      >
-        {store.gettingStartedCode}
-      </SyntaxHighlighter>
-      :""}
-      {store.licenseCode ?
-      <SyntaxHighlighter
-        wrapLongLines={true}
-        language="markdown"
-        style={atomDark}
-      >
-        {store.licenseCode}
-      </SyntaxHighlighter>
-      :""}
-      {store.conclusionCode ?
-      <SyntaxHighlighter
-        wrapLongLines={true}
-        language="markdown"
-        style={atomDark}
-      >
-        {store.conclusionCode}
-      </SyntaxHighlighter>
-      :""} */}
       {store ?
       <SyntaxHighlighter
       wrapLongLines={true}
