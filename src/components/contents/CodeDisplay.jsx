@@ -81,11 +81,11 @@ export default function CodeDisplay() {
       language="markdown"
       style={atomDark}
       >
-        {store.shieldCode,
-        store.overviewCode,
-        store.iconList,
-        store.gettingStartedCode,
-        store.licenseCode,
+        {store.shieldCode +
+        store.overviewCode +
+        store.iconList +
+        store.gettingStartedCode +
+        store.licenseCode +
         store.conclusionCode}
       </SyntaxHighlighter>
       :""}

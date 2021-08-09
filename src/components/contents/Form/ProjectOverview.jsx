@@ -27,11 +27,13 @@ export default function ProjectOverview() {
   const classes = useStyles();
 
   const [projectName, setProjectName] = useState("Project Name");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState("Project description goes here");
   const [imageUrl, setImageUrl] = useState("");
 
   const handleBlur = () => {
-    let projectOverviewCode = `# ${projectName}
+    let projectOverviewCode = `
+    
+# ${projectName}
 
 ## Table of Contents
 
@@ -52,7 +54,7 @@ ${description}
 
 ## Screenshots
 
-${imageUrl}`;
+<img src="${imageUrl}" />`;
 
     dispatch({ type: "UPDATE_OVERVIEW", payload: projectOverviewCode });
   };

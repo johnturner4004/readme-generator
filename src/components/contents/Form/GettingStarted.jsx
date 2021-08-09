@@ -20,15 +20,15 @@ export default function GettingStarted() {
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  const [gettingStarted, setGettingStarted] = useState(
-    "In the following sections, the prerequisites that need to be installed to run this project on your computer and steps to install it are listed."
-  );
-  const [prerequisites, setPrerequisites] = useState("");
-  const [installation, setInstallation] = useState("");
-  const [usage, setUsage] = useState("");
+  const [gettingStarted, setGettingStarted] = useState("What do I need to do or know before attempting to use your project");
+  const [prerequisites, setPrerequisites] = useState("What do I need to install before I can run your project");
+  const [installation, setInstallation] = useState("How do I get your project running?");
+  const [usage, setUsage] = useState("How do I use your project");
 
   const handleBlur = () => {
-    let gettingStartedCode = `## Getting Started
+    let gettingStartedCode = `
+    
+## Getting Started
 
 ${gettingStarted}
 
