@@ -50,7 +50,8 @@ export default function TechList() {
     let tagList = '';
     for (let i = 0; i < indexArr.length; i++) {
       let icon = Languages[Number(indexArr[i])].icon;
-      tagList += `<img src="${icon}" height="40px" width="40px" />`;
+      let url = Languages[Number(indexArr[i])].url;
+      tagList += `<a href="${url}"><img src="${icon}" height="40px" width="40px" /></a>`;
       console.log(icon, tagList);
     }
 

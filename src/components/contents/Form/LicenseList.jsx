@@ -39,7 +39,7 @@ export default function LicenseList() {
     let licenseTag = `
 ## License
 
-<a src="${licenseLink}"><img src="${licenseIcon}" height=40 />${licenseName}</a>`
+<a href="${licenseLink}"><img src="${licenseIcon}" height=40 />${licenseName}</a>`
 dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
   }
 
