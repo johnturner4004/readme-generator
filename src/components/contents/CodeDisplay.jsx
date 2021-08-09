@@ -10,6 +10,7 @@ const useStyles = makeStyles({
     margin: 10,
     height: '100%',
     backgroundColor: '#1D1F21',
+    fontSize: '0.6em',
   },
 });
 
@@ -20,10 +21,9 @@ export default function CodeDisplay() {
   return(
     <Card className={classes.codeCard}>
       <div>
-      {store.shieldCode ?
+      {/* {store.shieldCode ?
       <SyntaxHighlighter 
         wrapLongLines={true}
-        className={classes.codeCard} 
         language="markdown" 
         style={atomDark}
       >
@@ -33,7 +33,6 @@ export default function CodeDisplay() {
       {store.overviewCode ?
       <SyntaxHighlighter 
         wrapLongLines={true}
-        className={classes.codeCard} 
         language="markdown" 
         style={atomDark}
       >
@@ -43,7 +42,6 @@ export default function CodeDisplay() {
       {store.iconList ?
       <SyntaxHighlighter 
         wrapLongLines={true}
-        className={classes.codeCard} 
         language="markdown" 
         style={atomDark}
       >
@@ -53,7 +51,6 @@ export default function CodeDisplay() {
       {store.gettingStartedCode ?
       <SyntaxHighlighter 
         wrapLongLines={true}
-        className={classes.codeCard} 
         language="markdown" 
         style={atomDark}
       >
@@ -63,11 +60,33 @@ export default function CodeDisplay() {
       {store.licenseCode ?
       <SyntaxHighlighter
         wrapLongLines={true}
-        className={classes.licenseCode}
         language="markdown"
         style={atomDark}
       >
         {store.licenseCode}
+      </SyntaxHighlighter>
+      :""}
+      {store.conclusionCode ?
+      <SyntaxHighlighter
+        wrapLongLines={true}
+        language="markdown"
+        style={atomDark}
+      >
+        {store.conclusionCode}
+      </SyntaxHighlighter>
+      :""} */}
+      {store ?
+      <SyntaxHighlighter
+      wrapLongLines={true}
+      language="markdown"
+      style={atomDark}
+      >
+        {store.shieldCode,
+        store.overviewCode,
+        store.iconList,
+        store.gettingStartedCode,
+        store.licenseCode,
+        store.conclusionCode}
       </SyntaxHighlighter>
       :""}
       </div>

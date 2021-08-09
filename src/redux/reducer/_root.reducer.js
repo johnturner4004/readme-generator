@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
   shieldCode,
   textInput,
   licenseCode,
+  conclusionCode,
 });
 
 export default rootReducer;

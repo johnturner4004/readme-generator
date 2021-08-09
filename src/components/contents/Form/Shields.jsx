@@ -1,10 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
+import makeStyles from'@material-ui/styles/makeStyles';
+
+const useStyles = makeStyles(theme => ({
+  column: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '33%',
+  },
+  spacing: {
+    padding: '10px',
+  },
+}));
 
 
 export default function Shields() {
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const [githubUser, setGithubUser] = useState('johnturner4004');
   const [githubRepo, setGithubRepo] = useState('readme-generator');
@@ -22,8 +35,10 @@ export default function Shields() {
 
   return (
     <>
-      <TextField onChange={(event)  => setGithubUser(event.target.value)} onBlur={() => handleBlur()} label="Github Username" />
-      <TextField onChange={(event)  => setGithubRepo(event.target.value)} onBlur={() => handleBlur()} label="Github Repository Name" />
+    <div className={classes.column}>
+      <TextField className={classes.spacing} variant="outlined" onChange={(event)  => setGithubUser(event.target.value)} onBlur={() => handleBlur()} label="Github Username" />
+      <TextField className={classes.spacing} variant="outlined" onChange={(event)  => setGithubRepo(event.target.value)} onBlur={() => handleBlur()} label="Github Repository Name" />
+      </div>
     </>
   );
 }

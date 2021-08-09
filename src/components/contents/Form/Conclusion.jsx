@@ -1,7 +1,10 @@
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 export default function Conclusion() {
   const dispatch = useDispatch();
@@ -22,11 +25,15 @@ ${acknowledgement}
     dispatch({ type: 'SET_CONCLUSION', payload: conclusionCode });
   };
 
+  useEffect(() => {
+    handleBlur();
+  }, []);
+
   return(
     <>
-      <TextareaAutosize onChange={(event) => setAcknowledgement(event.target.value)} onBlur={() => handleBlur()} label="Acknowledgements" />
-      <TextField onChange={(event) => setLinkedIn(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn username" />
-      <TextField onChange={(event) => setEmail(event.target.value)} onBlur={() => handleBlur()} label="Email Address" />
+      <TextField variant="outlined" multiline rows={2} onChange={(event) => setAcknowledgement(event.target.value)} onBlur={() => handleBlur()} label="Acknowledgements" />
+      <TextField variant="outlined" onChange={(event) => setLinkedIn(event.target.value)} onBlur={() => handleBlur()} label="LinkedIn username" />
+      <TextField variant="outlined" onChange={(event) => setEmail(event.target.value)} onBlur={() => handleBlur()} label="Email Address" />
     </>
   )
 }
