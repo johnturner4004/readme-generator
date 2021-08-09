@@ -2,9 +2,24 @@ import { TextField } from "@material-ui/core";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const useStyles = makeStyles(theme => ({
+  spacing: {
+    padding: '10px',
+    width: 'calc(25% - 20px)',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'space-between',
+  },
+}));
 
 export default function GettingStarted() {
   const dispatch = useDispatch();
+  const classes = useStyles();
+
   const [gettingStarted, setGettingStarted] = useState(
     "In the following sections, the prerequisites that need to be installed to run this project on your computer and steps to install it are listed."
   );
@@ -40,42 +55,42 @@ ${usage}
   return (
     <>
       <TextField
+      className={classes.spacing}
         multiline
-        minRows={2}
         variant="outlined"
         label="Getting Started"
         onChange={(event) => setGettingStarted(event.target.value)}
         onBlur={() => handleBlur()}
-        minRows={5}
+        minRows={8}
         placeholder="Put anything a person would need to know before attempting to replicate you project"
       />
       <TextField
+        className={classes.spacing}
         multiline
-        minRows={2}
         variant="outlined"
         onChange={(event) => setPrerequisites(event.target.value)}
         onBlur={() => handleBlur()}
-        minRows={5}
+        minRows={8}
         label="Prerequisites"
         placeholder="List any software, installation instructions for that software, and/or sources for that software that a person would need to install before attempting to replicate your project"
       />
       <TextField
+        className={classes.spacing}
         multiline
-        minRows={2}
         variant="outlined"
         onChange={(event) => setInstallation(event.target.value)}
         onBlur={() => handleBlur()}
-        minRows={5}
+        minRows={8}
         label="Installation"
         placeholder="List the instructions a person would need to follow to get your project up and running"
       />
       <TextField
+        className={classes.spacing}
         multiline
-        minRows={2}
         variant="outlined"
         onChange={(event) => setUsage(event.target.value)}
         onBlur={() => handleBlur()}
-        minRows={5}
+        minRows={8}
         label="Usage"
         placeholder="Tell a person how to use your project. List steps if necessary to use your project"
       />

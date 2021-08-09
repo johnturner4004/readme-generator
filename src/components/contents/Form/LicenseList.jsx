@@ -6,9 +6,24 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import makeStyles from '@material-ui/core/styles/makeStyles'
+
+const useStyles = makeStyles(() => ({
+  rows: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+  },
+  space: {
+    paddin: '10px',
+    width: 'calc(50% - 20px)',
+  },
+}));
 
 export default function LicenseList() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const classes = useStyles();
+
   const [selected, setSelected] = useState(2);
 
   const handleChange = (event) => {
@@ -36,13 +51,15 @@ dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
     <FormControl component="fieldset">
       <FormLabel component="legend">License</FormLabel>
       <RadioGroup 
+        className={classes.rows}
         aria-label="license" 
         name="license" 
         value={selected} 
         onClick={handleChange}
       >
         {license.map(item => {return(  
-          <FormControlLabel 
+          <FormControlLabel
+            className={classes.space} 
             key={item.id} 
             value={item.id} 
             control={
