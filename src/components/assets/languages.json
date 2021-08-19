@@ -121,66 +121,72 @@
   },
   {
     "id": 20,
+    "name": "PHP",
+    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg",
+    "url": "https://www.php.net/docs.php"
+  },
+  {
+    "id": 21,
     "name": "PostgreSQL",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
     "url": "https://www.postgresql.org/"
   },
   {
-    "id": 21,
+    "id": 22,
     "name": "Python",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
     "url": "https://www.python.org/"
   },
   {
-    "id": 22,
+    "id": 23,
     "name": "Rails",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg",
     "url": "https://rubyonrails.org/"
   },
   {
-    "id": 23,
+    "id": 24,
     "name": "React",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
     "url": "https://reactjs.org/"
   },
   {
-    "id": 24,
+    "id": 25,
     "name": "React Native",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
     "url": "https://reactnative.dev/"
   },
   {
-    "id": 25,
+    "id": 26,
     "name": "Redux",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg",
     "url": "https://redux.js.org/"
   },
   {
-    "id": 26,
+    "id": 27,
     "name": "SASS",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg",
     "url": "https://sass-lang.com/"
   },
   {
-    "id": 27,
+    "id": 28,
     "name": "Swift",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg",
     "url": "https://developer.apple.com/swift/"
   },
   {
-    "id": 28,
+    "id": 29,
     "name": "SwiftUI",
     "icon": "https://img.icons8.com/fluent/100/000000/swiftui.png",
     "url": "https://developer.apple.com/xcode/swiftui/"
   },
   {
-    "id": 29,
+    "id": 30,
     "name": "TypeScript",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
     "url": "https://www.typescriptlang.org/"
   },
   {
-    "id": 30,
+    "id": 31,
     "name": "Vue.js",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg",
     "url": "https://vuejs.org/"
