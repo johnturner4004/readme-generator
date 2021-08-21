@@ -15,7 +15,7 @@
     "id": 2,
     "name": "C",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg",
-    "url": "https://www.w3schools.in/c-tutorial/"
+    "url": "https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=msvc-160"
   },
   {
     "id": 3,
@@ -27,13 +27,13 @@
     "id": 4,
     "name": "C++",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
-    "url": "https://www.w3schools.in/category/cplusplus-tutorial/"
+    "url": "https://docs.microsoft.com/en-us/cpp/standard-library/cpp-standard-library-reference?view=msvc-160"
   },
   {
     "id": 5,
     "name": "CSS3",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
-    "url": "https://www.w3schools.com/w3css/defaulT.asp"
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
   {
     "id": 6,
@@ -63,19 +63,19 @@
     "id": 10,
     "name": "HTML5",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
-    "url": "https://www.w3schools.com/html/"
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   {
     "id": 11,
     "name": "Java",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-    "url": "https://www.w3schools.com/java/"
+    "url": "https://docs.oracle.com/javase/tutorial/index.html"
   },
   {
     "id": 12,
     "name": "JavaScript",
     "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
-    "url": "https://www.w3schools.com/js/default.asp"
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   {
     "id": 13,
@@ -122,7 +122,7 @@
   {
     "id": 20,
     "name": "PHP",
-    "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg",
+    "icon": "https://github.com/devicons/devicon/blob/master/icons/php/php-original.svg",
     "url": "https://www.php.net/docs.php"
   },
   {
