@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/readme-generator/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/readme-generator/static/js/main.6d32b295.chunk.js",
-    "main.js.map": "/readme-generator/static/js/main.6d32b295.chunk.js.map",
+    "main.js": "/readme-generator/static/js/main.44d86f8c.chunk.js",
+    "main.js.map": "/readme-generator/static/js/main.44d86f8c.chunk.js.map",
     "runtime-main.js": "/readme-generator/static/js/runtime-main.a5326d9b.js",
     "runtime-main.js.map": "/readme-generator/static/js/runtime-main.a5326d9b.js.map",
     "static/js/2.1ab88377.chunk.js": "/readme-generator/static/js/2.1ab88377.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a5326d9b.js",
     "static/js/2.1ab88377.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.6d32b295.chunk.js"
+    "static/js/main.44d86f8c.chunk.js"
   ]
 }
