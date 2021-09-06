@@ -2,9 +2,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Languages from '../../assets/languages.json';
+// import Languages from '../../assets/languages.json';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   techList: {
@@ -28,6 +29,7 @@ export default function TechList() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [checked, setChecked] = useState([]);
+  const Languages = useSelector(store => store.technologieslist)
   
   function handleChange(event) {
     let i = checked.indexOf(event.target.value);
@@ -45,6 +47,10 @@ export default function TechList() {
       }
     }
   }
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_TECHNOLOGIESLIST' });
+  }, [dispatch])
   
   const makeTechTag = (indexArr) => {
     let tagList = '';
@@ -60,14 +66,13 @@ export default function TechList() {
     
     ${tagList}`;
     
-    dispatch({ type: 'FETCH_TECHNOLOGIESLIST' });
     dispatch ({ type: 'UPDATE_ICONS' , payload: techList });
   }
   
   return(
     <>
       <FormControl className={classes.iconRow}>
-      {Languages.map(language => {
+      {Languages ? Languages.map(language => {
         return (
           <div className={classes.techList} key={language.id}>
             <img className={classes.icon} src={language.icon} alt={language.name} />
@@ -79,7 +84,7 @@ export default function TechList() {
               label={language.name} 
             />
           </div>
-      )})}
+      )}):''}
       </FormControl>
     </>
   )

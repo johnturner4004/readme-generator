@@ -1,8 +1,12 @@
-import { all, takeLatest } from 'redux-saga/effects';
-import technologiesListSaga from './technologieslist.saga';
+import { all } from 'redux-saga/effects';
+import technologieslistSaga from './technologieslist.saga';
+import licenseListSaga from './licenseList.saga'
 
-export default function* rootSaga () {
+function* rootSaga () {
   yield all([
-    technologiesListSaga(),
-  ])
+    technologieslistSaga(),
+    licenseListSaga()
+  ]);
 }
+
+export default rootSaga;

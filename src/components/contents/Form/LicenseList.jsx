@@ -62,10 +62,10 @@ dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
               <Radio
                 color="primary" 
                 checkedIcon={
-                  <img src={item.icon} height="48px"/>
+                  <img src={item.icon} alt={item.name} height="48px"/>
                 }
                 icon={
-                  <img src={item.inactive} height="48px"/>
+                  <img src={item.inactive} alt={item.name} height="48px"/>
                 } 
               />
             } 

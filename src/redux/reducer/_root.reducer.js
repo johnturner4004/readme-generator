@@ -6,6 +6,7 @@ import licenseCode from './licenseCode.reducer';
 import overviewCode from './overviewCode.reducer';
 import shieldCode from './shieldCode.reducer';
 import textInput from './textInput.reducer';
+import technologieslist from './technologieslist.reducer'
 
 const rootReducer = combineReducers({
   gettingStartedCode,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   textInput,
   licenseCode,
   conclusionCode,
+  technologieslist
 });
 
 export default rootReducer;
