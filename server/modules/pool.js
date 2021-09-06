@@ -1,4 +1,3 @@
-const { ViewModuleSharp } = require('@material-ui/icons');
 const pg = require('pg')
 const url = require('url');
 
@@ -12,7 +11,7 @@ if (process.env.DATABASE_URL) {
     port: params.port,
     database: params.pathname.split('/')[1],
     max: 10,
-    idleTimeoutMills: 30000,
+    idleTimeoutMillis: 30000,
   };
 } else {
   config = {
@@ -20,7 +19,7 @@ if (process.env.DATABASE_URL) {
     port: 5432,
     database: 'readmemd_generator',
     max: 10,
-    idleTimeoutMills: 30000,
+    idleTimeoutMillis: 30000,
   }
 };
 
@@ -31,4 +30,4 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
-module.export = pool;
+module.exports = pool;
