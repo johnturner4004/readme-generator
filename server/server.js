@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('build'));
 
-app.use('/api/technologieslist', technologieslistRouter);
+app.use('api/technologieslist', technologieslistRouter);
 
 const PORT = process.env.PORT || 5000;
 

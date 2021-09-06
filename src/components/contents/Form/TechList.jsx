@@ -28,7 +28,7 @@ export default function TechList() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [checked, setChecked] = useState([]);
-
+  
   function handleChange(event) {
     let i = checked.indexOf(event.target.value);
     if (i === -1) {
@@ -45,7 +45,7 @@ export default function TechList() {
       }
     }
   }
-
+  
   const makeTechTag = (indexArr) => {
     let tagList = '';
     for (let i = 0; i < indexArr.length; i++) {
@@ -54,15 +54,16 @@ export default function TechList() {
       tagList += `<a href="${url}"><img src="${icon}" height="40px" width="40px" /></a>`;
       console.log(icon, tagList);
     }
-
+    
     let techList =
-`## Built With
-
-${tagList}`;
-
+    `## Built With
+    
+    ${tagList}`;
+    
+    dispatch({ type: 'FETCH_TECHNOLOGIESLIST' });
     dispatch ({ type: 'UPDATE_ICONS' , payload: techList });
   }
-
+  
   return(
     <>
       <FormControl className={classes.iconRow}>

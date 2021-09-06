@@ -1,6 +1,6 @@
 import TextField from '@material-ui/core/TextField';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
@@ -28,10 +28,6 @@ export default function Shields() {
 
     dispatch({ type: 'UPDATE_SHIELD', payload: shieldCode });
   }
-
-  useEffect(() => {
-    handleBlur();
-  }, []);
 
   return (
     <>

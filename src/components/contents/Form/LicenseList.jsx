@@ -4,7 +4,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import license from '../../assets/license.json'
 
@@ -42,10 +42,6 @@ export default function LicenseList() {
 <a href="${licenseLink}"><img src="${licenseIcon}" height=40 />${licenseName}</a>`
 dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
   }
-
-  useEffect(() => {
-    makeLicenseTag(selected);
-  }, []);
 
   return(
     <FormControl component="fieldset">

@@ -1,6 +1,6 @@
 import { TextField } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
@@ -46,10 +46,6 @@ ${usage}
 `;
     dispatch({ type: "UPDATE_GETTING_STARTED", payload: gettingStartedCode });
   };
-
-  useEffect(() => {
-    handleBlur();
-  }, []);
 
   return (
     <>

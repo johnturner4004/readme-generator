@@ -2,9 +2,16 @@
     
 # `README.md` Generator
 
+## Updates
+
+- Removed unnecessary useEffect functions
+- Removed my linkedin as the default state for the form
+- Added database to store readme data so it can easily be updated later
+
 ## Table of Contents
 
 - [`README.md` Generator](#readmemd-generator)
+  - [Updates](#updates)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Screenshot](#screenshot)
