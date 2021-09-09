@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects';
-import technologieslistSaga from './technologieslist.saga';
+import technologiesSaga from './technologies.saga';
 import licenseListSaga from './licenseList.saga'
 
 function* rootSaga () {
   yield all([
-    technologieslistSaga(),
+    technologiesSaga(),
     licenseListSaga()
   ]);
 }

@@ -4,14 +4,14 @@ require('dotenv').config();
 
 const app = express();
 
-const technologieslistRouter = require('./routes/technologiesList.router');
+const technologiesRouter = require('./routes/technologies.router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('build'));
 
-app.use('/api/technologieslist', technologieslistRouter);
+app.use('/api/technologies', technologiesRouter);
 
 const PORT = process.env.PORT || 5000;
 

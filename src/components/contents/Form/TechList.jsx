@@ -29,27 +29,43 @@ export default function TechList() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [checked, setChecked] = useState([]);
-  const Languages = useSelector(store => store.technologieslist)
+  const Languages = useSelector(store => store.technologiesReducer.list)
   
   function handleChange(event) {
+    // The checkboxes return the value of the item both when checked and unchecked. 
+    // If you just make an array the values, checking and un-checking an item
+    // Cause the array to have two of that item instead of just one.
+    
+    // To counter this, the handleChange function first checks to see if the 
+    // Value of the selected checkbox is already in the array using .indexOf()
     let i = checked.indexOf(event.target.value);
+    
+    // If the index === -1 then it is not currently in the array and is one that
+    // is intended by the user to be added to the array. To add it, it destructures
+    // the array, sorts the values, then both sets the value of the array and
+    // dispatches the same values. Dispatching the hook for the array itself causes
+    // the dispatched array to be missing the last value selected. The purpose of
+    // hook is more for keeping track of previously selected values.
     if (i === -1) {
       setChecked(([...checked, event.target.value]).sort((a, b) => a - b));
-      makeTechTag(([...checked, event.target.value]).sort((a, b) => a - b));
+      let dispatchArray = (([...checked, event.target.value]).sort((a, b) => a - b));
+      console.log(dispatchArray);
+      dispatch({ type: 'FETCH_TECHNOLOGIES_SELECTED', payload: dispatchArray });
     } else {
-      let temp = [];
-      for (let j = 0; j < checked.length; j++) {
-        if (j !== i) {
-          temp.push(checked[j]);
-        }
-        setChecked(temp);
-        makeTechTag(temp);
-      }
+      // If the value did have an index, it was checked then unchecked so it needs
+      // to be removed. To do that the function makes a new array from the existing
+      // checked array called dispatchArray then uses .splice() on it at the index
+      // of the selected item to remove it, then setChecked() to alter the original
+      // and dispatches the new array. 
+      let dispatchArray = checked;
+      dispatchArray.splice(i, 1);
+      setChecked(dispatchArray);
+      dispatch({ type: 'FETCH_TECHNOLOGIES_SELECTED', payload: dispatchArray });
     }
   }
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_TECHNOLOGIESLIST' });
+    dispatch({ type: 'FETCH_TECHNOLOGIES_LIST' });
   }, [dispatch])
   
   const makeTechTag = (indexArr) => {
@@ -75,7 +91,7 @@ export default function TechList() {
       {Languages ? Languages.map(language => {
         return (
           <div className={classes.techList} key={language.id}>
-            <img className={classes.icon} src={language.icon} alt={language.name} />
+            <img className={classes.icon} value={language.id}src={`${language.icon}`} alt={`${language.name}`} />
             <FormControlLabel 
               control={<Checkbox color="primary" 
                 onChange={handleChange} 
