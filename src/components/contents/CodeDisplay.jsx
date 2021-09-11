@@ -29,7 +29,7 @@ export default function CodeDisplay() {
       >
         {store.shieldCode +
         store.overviewCode +
-        store.iconList +
+        store.technologiesReducer.htmlTagList +
         store.gettingStartedCode +
         store.licenseCode +
         store.conclusionCode}

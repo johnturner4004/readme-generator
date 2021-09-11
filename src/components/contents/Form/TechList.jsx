@@ -4,7 +4,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/styles';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import Languages from '../../assets/languages.json';
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
@@ -67,24 +66,7 @@ export default function TechList() {
   useEffect(() => {
     dispatch({ type: 'FETCH_TECHNOLOGIES_LIST' });
   }, [dispatch])
-  
-  const makeTechTag = (indexArr) => {
-    let tagList = '';
-    for (let i = 0; i < indexArr.length; i++) {
-      let icon = Languages[Number(indexArr[i])].icon;
-      let url = Languages[Number(indexArr[i])].url;
-      tagList += `<a href="${url}"><img src="${icon}" height="40px" width="40px" /></a>`;
-      console.log(icon, tagList);
-    }
-    
-    let techList =
-    `## Built With
-    
-    ${tagList}`;
-    
-    dispatch ({ type: 'UPDATE_ICONS' , payload: techList });
-  }
-  
+
   return(
     <>
       <FormControl className={classes.iconRow}>
