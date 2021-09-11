@@ -15,7 +15,8 @@ function* getTechnologiesList() {
 function* getTechnologiesSelected(action) {
   try{
     console.log("payload", action.payload);
-    const response = yield axios.get(`api/technologies/selected`, {params: action.payload})
+    const response = yield axios.get(`api/technologies/selected`, {params: { reqArray: action.payload}})
+    console.log(response);
   } catch(error) {
     console.log(`Unable to get technologies selected: ${error}`);
   }

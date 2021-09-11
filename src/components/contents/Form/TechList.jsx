@@ -47,8 +47,8 @@ export default function TechList() {
     // the dispatched array to be missing the last value selected. The purpose of
     // hook is more for keeping track of previously selected values.
     if (i === -1) {
-      setChecked(([...checked, event.target.value]).sort((a, b) => a - b));
-      let dispatchArray = (([...checked, event.target.value]).sort((a, b) => a - b));
+      setChecked(([...checked, Number(event.target.value)]).sort((a, b) => a - b));
+      let dispatchArray = (([...checked, Number(event.target.value)]).sort((a, b) => a - b));
       console.log(dispatchArray);
       dispatch({ type: 'FETCH_TECHNOLOGIES_SELECTED', payload: dispatchArray });
     } else {
