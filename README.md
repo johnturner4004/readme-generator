@@ -74,7 +74,7 @@ I'd like to extend a special thanks to [Devicon.dev](https://devicon.dev/) for t
 
 I'd also like to thank [Prime Digital Academy](https://www.primeacademy.io/) for teaching me how to program. I strongly recommend them to anyone in either the Twin Cities or Kansas City area looking to start a career in programming or user experience.
 
-Finally, I'd like to thank the Hendrickson and Turner families for their financial and emotional support throughout my journey into software development. 
+Finally, I'd like to thank the Hendricksen and Turner families for their financial and emotional support throughout my journey into software development. 
 
 ## Contacts
 

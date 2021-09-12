@@ -4,7 +4,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import license from '../../assets/license.json'
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'row',
   },
   space: {
-    paddin: '10px',
+    padding: '10px',
     width: 'calc(50% - 20px)',
   },
 }));
@@ -23,6 +23,10 @@ const useStyles = makeStyles(() => ({
 export default function LicenseList() {
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_LICENSE_LIST' });
+  })
 
   const [selected, setSelected] = useState(2);
 

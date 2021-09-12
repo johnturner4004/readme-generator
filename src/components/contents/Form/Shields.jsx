@@ -19,8 +19,8 @@ export default function Shields() {
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  const [githubUser, setGithubUser] = useState('johnturner4004');
-  const [githubRepo, setGithubRepo] = useState('readme-generator');
+  const [githubUser, setGithubUser] = useState('');
+  const [githubRepo, setGithubRepo] = useState('');
 
   
   function handleBlur() {

@@ -4,7 +4,8 @@ import { put } from "redux-saga/effects";
 
 function* getLicenseList() {
   try{
-    // const response = yield axios.get(`api/technologies/list`)
+    const response = yield axios.get(`api/licenses/list`);
+    console.log(response.data)
   } catch(error) {
     console.log(`Unable to get license list: ${error}`)
   }
