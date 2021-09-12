@@ -26,7 +26,9 @@ export default function MDPreview() {
       </ReactMarkdown>
       <ReactMarkdown 
       children ={
-`## Built With
+`
+
+## Built With
 
 ${store.technologiesReducer.htmlTagList}`}
       rehypePlugins={[rehypeRaw]}>
@@ -34,8 +36,14 @@ ${store.technologiesReducer.htmlTagList}`}
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {store.gettingStartedCode}
       </ReactMarkdown>
-      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {store.licenseCode}
+      <ReactMarkdown 
+      children={
+`
+
+## License
+
+${store.licensesReducer.htmlTag}`}
+      rehypePlugins={[rehypeRaw]}>
       </ReactMarkdown>
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {store.conclusionCode}

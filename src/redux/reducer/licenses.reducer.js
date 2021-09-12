@@ -9,8 +9,18 @@ const list = (state = [], action) => {
   }
 }
 
+const htmlTag = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_LICENSE_TAG':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 const licensesReducer = combineReducers({
-  list
+  list,
+  htmlTag
 });
 
 export default licensesReducer;

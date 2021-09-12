@@ -18,7 +18,6 @@ router.get('/selected', async (req, res) => {
   const client = await pool.connect();
   try {
     client.query('BEGIN');  
-    console.log(req.query.reqArray);
     let inArray = req.query.reqArray;
     let sqlText = `SELECT * FROM technologieslist WHERE id = $1`;
     let outArray = []
@@ -26,7 +25,6 @@ router.get('/selected', async (req, res) => {
       let data = await client.query(sqlText, [id]);
       outArray.push(data.rows[0]);
     } 
-    console.log(outArray);
     res.send(outArray);
     client.query('COMMIT')
   } catch (error) {

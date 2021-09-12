@@ -5,8 +5,9 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import license from '../../assets/license.json'
+// import license from '../../assets/license.json'
 
 const useStyles = makeStyles(() => ({
   rows: {
@@ -24,28 +25,32 @@ export default function LicenseList() {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+  const license = useSelector(store => store.licensesReducer.list);
+
   useEffect(() => {
     dispatch({ type: 'FETCH_LICENSE_LIST' });
-  })
+  }, [dispatch])
 
-  const [selected, setSelected] = useState(2);
+  const [selected, setSelected] = useState(3);
 
   const handleChange = (event) => {
     console.log(event.target.value);
-    setSelected(Number(event.target.value));
-    makeLicenseTag(Number(event.target.value))
+    let selected = Number(event.target.value);
+    setSelected(selected);
+    // makeLicenseTag(Number(event.target.value))
+    dispatch({ type: 'FETCH_SELECTED_LICENSE', payload: selected });
   }
 
-  const makeLicenseTag = (index) => {
-    let licenseIcon = license[index].icon;
-    let licenseLink = license[index].url;
-    let licenseName = license[index].name;
-    let licenseTag = `
-## License
+//   const makeLicenseTag = (index) => {
+//     let licenseIcon = license[index].icon;
+//     let licenseLink = license[index].documentationurl;
+//     let licenseName = license[index].name;
+//     let licenseTag = `
+// ## License
 
-<a href="${licenseLink}"><img src="${licenseIcon}" height=40 />${licenseName}</a>`
-dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
-  }
+// <a href="${licenseLink}"><img src="${licenseIcon}" height=40 />${licenseName}</a>`
+// dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
+//   }
 
   return(
     <FormControl component="fieldset">
@@ -69,7 +74,7 @@ dispatch({ type: 'UPDATE_LICENSE', payload: licenseTag });
                   <img src={item.icon} alt={item.name} height="48px"/>
                 }
                 icon={
-                  <img src={item.inactive} alt={item.name} height="48px"/>
+                  <img src={item.inactiveicon} alt={item.name} height="48px"/>
                 } 
               />
             } 

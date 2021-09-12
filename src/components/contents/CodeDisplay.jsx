@@ -27,12 +27,21 @@ export default function CodeDisplay() {
       language="markdown"
       style={atomDark}
       >
-        {store.shieldCode +
-        store.overviewCode +
-        store.technologiesReducer.htmlTagList +
-        store.gettingStartedCode +
-        store.licenseCode +
-        store.conclusionCode}
+{store.shieldCode +
+store.overviewCode +
+`
+## Built With
+
+` +
+store.technologiesReducer.htmlTagList +
+store.gettingStartedCode +
+`
+
+## License
+
+` +
+store.licensesReducer.htmlTag +
+store.conclusionCode}
       </SyntaxHighlighter>
       :""}
       </div>
