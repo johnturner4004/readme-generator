@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.get('/list', (req, res) => {
-  const sqlText = `SELECT * FROM licenses ORDER BY name DESC`;
+  const sqlText = `SELECT * FROM licenses ORDER BY name ASC`;
   pool.query(sqlText)
   .then (result => {
     res.send(result.rows)

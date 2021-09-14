@@ -4,7 +4,7 @@ import { put } from "redux-saga/effects";
 
 function* getLicenseList() {
   try{
-    const response = yield axios.get(`api/licenses/list`);
+    const response = yield axios.get(`/api/licenses/list`);
     yield put({ type: 'SET_LICENSE_LIST', payload: response.data})
   } catch(error) {
     console.log(`Unable to get license list: ${error}`)
@@ -13,7 +13,7 @@ function* getLicenseList() {
 
 function* getSelectedLicense(action) {
   try{
-    const response = yield axios.get(`api/licenses/${action.payload}`)
+    const response = yield axios.get(`/api/licenses/${action.payload}`)
     let license = response.data[0];
     let licenseTag = 
 `<a href="${license.documentationurl}"><img src="${license.icon}" height=40 />${license.name}</a>`;

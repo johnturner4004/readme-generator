@@ -3,7 +3,7 @@ import { put, takeLatest } from "redux-saga/effects";
 
 function* getTechnologiesList() {
   try{
-    const response = yield axios.get(`api/technologies/list`)
+    const response = yield axios.get(`/api/technologies/list`)
     yield put({ type: 'SET_TECHNOLOGIES_LIST', payload: response.data })
   } catch(error) {
     console.log(`Unable to get technologies list: ${error}`)
@@ -12,7 +12,7 @@ function* getTechnologiesList() {
 
 function* getTechnologiesSelected(action) {
   try{
-    const response = yield axios.get(`api/technologies/selected`, {params: { reqArray: action.payload}})
+    const response = yield axios.get(`/api/technologies/selected`, {params: { reqArray: action.payload}})
     let htmlTagList = '';
     for(let entry of response.data) {
       htmlTagList += `<a href="${entry.documentationurl}"><img src="${entry.icon}" height="40px" width="40px" /></a> `;
