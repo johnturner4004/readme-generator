@@ -11,8 +11,8 @@ router.get('/list', (req, res) => {
     .catch(error => {
       console.log(`Unable to get technologies list: ${error}`);
       res.sendStatus(500);
-    })
-}) 
+    });
+});
 
 router.get('/selected', async (req, res) => {
   const client = await pool.connect();
@@ -32,8 +32,7 @@ router.get('/selected', async (req, res) => {
     res.sendStatus(500);
   } finally {
     client.release();
-  }
-  
-})
+  };
+});
 
 module.exports = router;
