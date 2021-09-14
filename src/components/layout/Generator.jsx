@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FormLayout() {
+export default function Generator() {
   const classes = useStyles();
 
   return (

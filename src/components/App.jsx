@@ -1,13 +1,14 @@
 import Container from "@material-ui/core/Container";
 import makeStyles from "@material-ui/styles/makeStyles";
 import Header from "./layout/Header";
-import FormLayout from "./layout/FormLayout";
+import Login from './layout/Login'
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
 } from "react-router-dom";
+import Generator from "./layout/Generator";
 
 const useStyles = makeStyles({
   page: {
@@ -37,10 +38,10 @@ function App() {
         <Switch>
           <Redirect exact from='/' to='/login' />
           <Route exact path="/login">
-            <h1>HELLO</h1>
+            <Login />
           </Route>
           <Route exact path="/generator">
-            <FormLayout />
+            <Generator />
           </Route>
         </Switch>
       </Router>
