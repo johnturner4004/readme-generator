@@ -7,9 +7,12 @@ if (process.env.DATABASE_URL) {
   const params = url.parse(process.env.DATABASE_URL);
   
   config = {
+    user: auth[0],
+    password: auth[1],
     host: params.hostname,
     port: params.port,
     database: params.pathname.split('/')[1],
+    ssl: { rejectUnauthorized: false },
     max: 10,
     idleTimeoutMillis: 30000,
   };

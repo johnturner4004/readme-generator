@@ -1,27 +1,44 @@
 let passport = require('passport');
 let localStrategy = require('passport-local').Strategy;
+let pool = require('../modules/pool');
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
   done(null, user.id);
 })
 
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
+passport.deserializeUser((id, done) => {
+  pool.query('SELECT * FROM "user" WHERE id = $1', [id])
+  .then((result) => {
+    const user = result && result.rows && result.rows[0];
+    
+    if (user) {
+      delete user.password; //removes password so it doesn't get sent
+      done(null, user);
+    }
+  })
+  .catch((error) =>{
+    console.log(`Error with query while deserializing user: ${error}`);
   });
 });
 
-passport.use(new localStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+passport.use('local', 
+new localStrategy((username, password, done) => {
+  console.log(`Trying to login`);
+  pool.query(`SELECT * FROM "user" WHERE username = $1`, [username])
+  .then(result => {
+      const user = result && result.rows && result.rows[0];
+
+      if (user && password === user.password) {
+        done(null, user);
+      } else {
+        done(null, null);
       }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password' });
-      }
-      done(null, user);
+    })
+    .catch(error => {
+      console.log(`Error with query for user: ${error}`) ;
+      done(error, null);
     })
   }
 ))
+
+module.exports = passport;

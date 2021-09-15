@@ -2,7 +2,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/styles';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
@@ -70,19 +70,19 @@ export default function TechList() {
   return(
     <>
       <FormControl className={classes.iconRow}>
-      {Languages ? Languages.map(language => {
-        return (
-          <div className={classes.techList} key={language.id}>
-            <img className={classes.icon} value={language.id}src={`${language.icon}`} alt={`${language.name}`} />
-            <FormControlLabel 
-              control={<Checkbox color="primary" 
-                onChange={handleChange} 
-                value={language.id} 
-              />} 
-              label={language.name} 
-            />
-          </div>
-      )}):''}
+        {Languages.map(language => {
+          return (
+            <div className={classes.techList} key={language.id}>
+              <img className={classes.icon} value={language.id}src={`${language.icon}`} alt={`${language.name}`} />
+              <FormControlLabel 
+                control={<Checkbox color="primary" 
+                  onChange={handleChange} 
+                  value={language.id} 
+                />} 
+                label={language.name} 
+              />
+            </div>
+        )})}
       </FormControl>
     </>
   )
