@@ -9,6 +9,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Generator from "./layout/Generator";
+import UserProtectedRoute from './ProtectedRoute/UserProtectedRoute';
 
 const useStyles = makeStyles({
   page: {
@@ -37,12 +38,12 @@ function App() {
       <Router>
         <Switch>
           <Redirect exact from='/' to='/login' />
-          <Route exact path="/login">
+          <UserProtectedRoute exact path="/login" authRedirect="/generator">
             <Login />
-          </Route>
-          <Route exact path="/generator">
+          </UserProtectedRoute>
+          <UserProtectedRoute exact path="/generator">
             <Generator />
-          </Route>
+          </UserProtectedRoute>
         </Switch>
       </Router>
     </Container>
