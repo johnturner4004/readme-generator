@@ -39,8 +39,6 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log(`username: ${username}, password: ${password}`)
-
   function handleSubmit() {
     dispatch({ type: 'LOGIN', payload: { username: username, password: password}});
   }

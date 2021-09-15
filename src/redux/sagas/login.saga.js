@@ -16,8 +16,24 @@ function* login(action) {
   }
 }
 
+function* logout() {
+  try{
+    const config = {
+      headers: { 'Content-Type': 'application/json'},
+      withCredentials: true,
+    }
+
+    axios.post('/api/user/logout', config);
+
+    yield put({ type: 'CLEAR_USER' });
+  } catch (error) {
+
+  }
+}
+
 function* loginSaga() {
   yield takeLatest('LOGIN', login);
+  yield takeLatest('LOGOUT', logout);
 }
 
 export default loginSaga;

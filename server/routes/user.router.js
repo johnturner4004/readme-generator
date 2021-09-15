@@ -12,4 +12,9 @@ router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
 })
 
+router.post('/logout', (req, res) => {
+  req.logout();
+  res.sendStatus(200)
+})
+
 module.exports = router;
