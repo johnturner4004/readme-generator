@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Generator from "./layout/Generator";
 import UserProtectedRoute from './ProtectedRoute/UserProtectedRoute';
+import Registration from './layout/Registration';
 
 const useStyles = makeStyles({
   page: {
@@ -44,6 +45,9 @@ function App() {
           <UserProtectedRoute exact path="/generator">
             <Generator />
           </UserProtectedRoute>
+          <Route exact path='/registration'>
+            <Registration />
+          </Route>
         </Switch>
       </Router>
     </Container>

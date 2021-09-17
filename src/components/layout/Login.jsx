@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   paper: {
@@ -30,11 +31,20 @@ const useStyles = makeStyles({
   spacing: {
     margin: 10,
   },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  button: {
+    marginLeft: 10,
+  },
 });
 
 export default function Login() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -69,7 +79,10 @@ export default function Login() {
           <Typography variant="h3" component="h2">Login</Typography>
           <TextField className={classes.spacing} id="username" label="username" variant="outlined" onChange={(event) => setUsername(event.target.value)}/>
           <TextField className={classes.spacing} id="username" label="password" variant="outlined" onChange={(event) => setPassword(event.target.value)}/>
-          <Button className={classes.spacing} id="submit" color="primary" variant="contained" onClick={() => handleSubmit()}>Submit</Button>
+          <Container className={classes.row}>
+            <Button className={classes.button} id="submit" color="primary" variant="contained" onClick={() => handleSubmit()}>Log In</Button>
+            <Button className={classes.button} id="register" color="secondary" variant="contained" onClick={() => history.push('/registration')}>Register</Button>
+          </Container>
         </Container>
       </Card>
     </Paper>
