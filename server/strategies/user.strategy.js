@@ -1,6 +1,7 @@
-let passport = require('passport');
-let localStrategy = require('passport-local').Strategy;
-let pool = require('../modules/pool');
+const passport = require('passport');
+const localStrategy = require('passport-local').Strategy;
+const pool = require('../modules/pool');
+const encryptLib = require('../modules/encryption');
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -28,7 +29,7 @@ new localStrategy((username, password, done) => {
   .then(result => {
       const user = result && result.rows && result.rows[0];
 
-      if (user && password === user.password) {
+      if (user && encryptLib.comparePassword(password, user.password)) {
         done(null, user);
       } else {
         done(null, null);

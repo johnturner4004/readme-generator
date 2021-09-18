@@ -2,6 +2,7 @@ const express = require('express');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const userStrategy = require('../strategies/user.strategy');
 const pool = require('../modules/pool');
+const encryptLib = require('../modules/encryption');
 
 const router = express.Router();
 
@@ -25,7 +26,7 @@ router.post('/profile', (req, res) => {
   const profile = req.body;
   
   const username = profile.username;
-  const password = profile.password;
+  const password = encryptLib.encryptPassword(profile.password);
   const accountLevel = 1;
   const email = profile.email;
   const github = profile.github;
