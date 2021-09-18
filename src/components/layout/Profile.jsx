@@ -6,13 +6,11 @@ import { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles({
   paper: {
-    // paddingBottom: 20,
     paddingTop: 20,
-    // paddingLeft: 20,
-    // paddingRight: 20,
     margin: 20,
     height: "100%",
     display: "flex",
@@ -44,6 +42,7 @@ const useStyles = makeStyles({
 
 export default function Registration() {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -53,7 +52,16 @@ export default function Registration() {
   const [linkedin, setLinkedin] = useState('');
 
   const handleSubmit = () => {
+    const profile = {
+      username: username,
+      password: password,
+      confirm: confirm,
+      email: email,
+      github: github,
+      linkedin: linkedin,
+    };
 
+    dispatch({ type: 'NEW_PROFILE', data: profile });
   }
 
   return(

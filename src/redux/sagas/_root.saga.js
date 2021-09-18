@@ -1,15 +1,17 @@
 import { all } from 'redux-saga/effects';
-import technologiesSaga from './technologies.saga';
 import licenseListSaga from './licenses.saga';
-import userSaga from './user.saga';
 import loginSaga from './login.saga';
+import profileSaga from './profile.saga';
+import technologiesSaga from './technologies.saga';
+import userSaga from './user.saga';
 
 function* rootSaga () {
   yield all([
-    technologiesSaga(),
     licenseListSaga(),
-    userSaga(),
     loginSaga(),
+    profileSaga(),
+    technologiesSaga(),
+    userSaga(),
   ]);
 }
 

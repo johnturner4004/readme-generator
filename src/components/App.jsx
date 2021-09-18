@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Generator from "./layout/Generator";
 import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
-import Registration from './layout/Registration';
+import Registration from './layout/Profile';
 
 const useStyles = makeStyles({
   page: {
