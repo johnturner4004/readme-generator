@@ -9,7 +9,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Generator from "./layout/Generator";
-import UserProtectedRoute from './ProtectedRoute/UserProtectedRoute';
+import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
 import Registration from './layout/Registration';
 
 const useStyles = makeStyles({
@@ -24,9 +24,6 @@ const useStyles = makeStyles({
     paddingTop: 20,
     margin: 20,
     height: "100%",
-  },
-  gridContainer: {
-    padding: 10,
   },
 });
 

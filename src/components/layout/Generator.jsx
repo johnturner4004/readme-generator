@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     padding: 0,
     margin: 0,
     width: "100vw",
-    maxWidth: "100vw",
   },
   paper: {
     paddingBottom: 40,
