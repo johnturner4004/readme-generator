@@ -20,21 +20,23 @@ router.post('/logout', (req, res) => {
 })
 
 router.post('/profile', (req, res) => {
-  const sqlText = `INSERT INTO "user" (username, password, accountlevel, email, github, linkedin)
-    VALUES($1, $2, $3, $4, $5, $6)`;
+  const sqlText = `INSERT INTO "user" (username, password, accountlevel, first_name, last_name, email, github, linkedin)
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8)`;
 
   const profile = req.body;
   
   const username = profile.username;
   const password = encryptLib.encryptPassword(profile.password);
   const accountLevel = 1;
+  const firstName = profile.firstName;
+  const lastName = profile.lastName;
   const email = profile.email;
   const github = profile.github;
   const linkedin = profile.linkedin;
   
-  pool.query(sqlText, [username, password, accountLevel, email, github, linkedin])
+  pool.query(sqlText, [username, password, accountLevel, firstName, lastName, email, github, linkedin])
   .then(() => {
-    res.sendStatus(200);
+    res.sendStatus(201);
   })
   .catch(error => {
     console.log(`Error adding user: ${error}`);

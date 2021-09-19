@@ -78,7 +78,7 @@ export default function Login() {
         <Container className={classes.loginForm}>
           <Typography variant="h3" component="h2">Login</Typography>
           <TextField className={classes.spacing} id="username" label="username" variant="outlined" onChange={(event) => setUsername(event.target.value)}/>
-          <TextField className={classes.spacing} id="username" label="password" variant="outlined" onChange={(event) => setPassword(event.target.value)}/>
+          <TextField className={classes.spacing} type="password" id="password" label="password" variant="outlined" onChange={(event) => setPassword(event.target.value)}/>
           <Container className={classes.row}>
             <Button className={classes.button} id="submit" color="primary" variant="contained" onClick={() => handleSubmit()}>Log In</Button>
             <Button className={classes.button} id="register" color="secondary" variant="contained" onClick={() => history.push('/registration')}>Register</Button>

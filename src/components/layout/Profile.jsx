@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   paper: {
@@ -43,10 +44,13 @@ const useStyles = makeStyles({
 export default function Registration() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [github, setGithub] = useState('');
   const [linkedin, setLinkedin] = useState('');
@@ -56,12 +60,15 @@ export default function Registration() {
       username: username,
       password: password,
       confirm: confirm,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       github: github,
       linkedin: linkedin,
     };
 
-    dispatch({ type: 'NEW_PROFILE', data: profile });
+    dispatch({ type: 'NEW_PROFILE', payload: profile });
+    history.push('/generator');
   }
 
   return(
@@ -78,6 +85,8 @@ export default function Registration() {
       <Card className={classes.card}>
         <Container className={classes.profileForm}>
         <Typography className={classes.spacing} variant="h3" component="h2">Personal Links</Typography>
+          <TextField className={classes.spacing} id="firstName" label="first name" variant="outlined" onChange={(event) => setFirstName(event.target.value)} />
+          <TextField className={classes.spacing} id="lastName" label="last name" variant="outlined" onChange={(event) => setLastName(event.target.value)} />
           <TextField className={classes.spacing} id="email" label="email address" variant="outlined" onChange={(event) => setEmail(event.target.value)} />
           <TextField className={classes.spacing} id="github" label="github url" variant="outlined" onChange={(event) => setGithub(event.target.value)} />
           <TextField className={classes.spacing} id="linkedin" label="linkedin url" variant="outlined" onChange={(event) => setLinkedin(event.target.value)} />

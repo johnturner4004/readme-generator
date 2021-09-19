@@ -13,6 +13,8 @@ export default function ProtectedRoute(props) {
 
   const ComponentToProtect = props.component || (() => props.children);
 
+  console.log(`Component to protect: ${ComponentToProtect}`);
+
   let ComponentToShow;
 
   if (user.id) {
@@ -21,7 +23,9 @@ export default function ProtectedRoute(props) {
     ComponentToShow = Login;
   }
 
-  if (user.id && props.authRedirect != null) {
+  console.log(`authRedirect: ${authRedirect}`);
+
+  if (user.id && authRedirect != null) {
     return <Redirect exact from={otherProps.path} to={authRedirect} />;
   }
 
