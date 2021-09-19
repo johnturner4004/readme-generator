@@ -11,6 +11,8 @@ import {
 import Generator from "./layout/Generator";
 import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
 import Registration from './layout/Profile';
+import { useDispatch  } from 'react-redux';
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   page: {
@@ -29,6 +31,11 @@ const useStyles = makeStyles({
 
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_USER' })
+  }, [dispatch]);
 
   return (
     <Container className={classes.page}>

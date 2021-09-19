@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import clsx from "clsx";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(() => ({
   column: {
@@ -25,7 +26,9 @@ export default function ProjectOverview() {
   const classes = useStyles();
 
   const [projectName, setProjectName] = useState("Project Name");
-  const [description, setDescription] = useState("Project description goes here");
+  const [description, setDescription] = useState(
+    "Project description goes here"
+  );
   const [imageUrl, setImageUrl] = useState("");
 
   const handleBlur = () => {
@@ -59,35 +62,38 @@ ${description}
 
   return (
     <>
-    <div className={classes.row}>
-      <div className={classes.column}>
-      <TextField
-      className={classes.spacing}
-        variant="outlined"
-        onChange={(event) => setProjectName(event.target.value)}
-        onBlur={() => handleBlur()}
-        label="Project name"
-        placeholder="Not the repo name"
-      />
-        <TextField
-          className={classes.spacing}
-          variant="outlined"
-          onChange={(event) => setImageUrl(`<img src="${event.target.value}" />`)}
-          onBlur={() => handleBlur()}
-          label="Image URL"
-          placeholder="or relative path"
-        />
+      <div className={classes.row}>
+        <div className={classes.column}>
+          <TextField
+            className={classes.spacing}
+            variant="outlined"
+            onChange={(event) => setProjectName(event.target.value)}
+            onBlur={() => handleBlur()}
+            label="Project name"
+            placeholder="Not the repo name"
+          />
+          <Button id="create" variant="contained" color="primary" onClick={() => console.log('')}>Create New</Button>
+          <TextField
+            className={classes.spacing}
+            variant="outlined"
+            onChange={(event) =>
+              setImageUrl(`<img src="${event.target.value}" />`)
+            }
+            onBlur={() => handleBlur()}
+            label="Image URL"
+            placeholder="or relative path"
+          />
         </div>
-      <TextField
-      className={clsx(classes.column, classes.spacing)}
-        multiline
-        minRows={5}
-        variant="outlined"
-        onChange={(event) => setDescription(event.target.value)}
-        onBlur={() => handleBlur()}
-        label="Description"
-        placeholder="Give a detailed description of what your project does and what problem it solves. This is a great place to put a link to a deployed version of your project"
-      />
+        <TextField
+          className={clsx(classes.column, classes.spacing)}
+          multiline
+          minRows={5}
+          variant="outlined"
+          onChange={(event) => setDescription(event.target.value)}
+          onBlur={() => handleBlur()}
+          label="Description"
+          placeholder="Give a detailed description of what your project does and what problem it solves. This is a great place to put a link to a deployed version of your project"
+        />
       </div>
     </>
   );

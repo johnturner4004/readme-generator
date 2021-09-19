@@ -88,7 +88,7 @@ export default function Registration() {
           <TextField className={classes.spacing} id="firstName" label="first name" variant="outlined" onChange={(event) => setFirstName(event.target.value)} />
           <TextField className={classes.spacing} id="lastName" label="last name" variant="outlined" onChange={(event) => setLastName(event.target.value)} />
           <TextField className={classes.spacing} id="email" label="email address" variant="outlined" onChange={(event) => setEmail(event.target.value)} />
-          <TextField className={classes.spacing} id="github" label="github url" variant="outlined" onChange={(event) => setGithub(event.target.value)} />
+          <TextField className={classes.spacing} id="github" label="github username" variant="outlined" onChange={(event) => setGithub(event.target.value)} />
           <TextField className={classes.spacing} id="linkedin" label="linkedin url" variant="outlined" onChange={(event) => setLinkedin(event.target.value)} />
         </Container>
       </Card>

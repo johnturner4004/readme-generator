@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 export default function ProtectedRoute(props) {
   const user = useSelector(store => store.user);
+  console.log(`user:`, user);
 
   const {
     authRedirect,
