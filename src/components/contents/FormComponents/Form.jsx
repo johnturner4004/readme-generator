@@ -7,6 +7,8 @@ import LicenseList from "./LicenseList";
 import ProjectOverview from "./ProjectOverview";
 import Shields from "./Shields";
 import TechList from "./TechList";
+import ProfileData from './ProfileData';
+import ProjectData from "./ProjectData";
 
 const useStyles = makeStyles({
   formCard: {
@@ -34,19 +36,24 @@ export default function Form() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.formCard}>
-      <div className={classes.row}>
-        <ProjectOverview className={classes.twoColumn} />
-        <Shields className={classes.oneColumn} />
-      </div>
-      <Divider className={classes.divider} />
-      <TechList />
-      <Divider className={classes.divider} />
-      <GettingStarted />
-      <Divider className={classes.divider} />
-      <LicenseList />
-      <Divider className={classes.divider} />
-      <Conclusion />
-    </Card>
+      <Card className={classes.formCard}>
+        <ProfileData />
+        <Divider className={classes.divider} />
+        <ProjectData />
+      </Card>
+    // <Card className={classes.formCard}>
+    //   <div className={classes.row}>
+    //     <ProjectOverview className={classes.twoColumn} />
+    //     <Shields className={classes.oneColumn} />
+    //   </div>
+    //   <Divider className={classes.divider} />
+    //   <TechList />
+    //   <Divider className={classes.divider} />
+    //   <GettingStarted />
+    //   <Divider className={classes.divider} />
+    //   <LicenseList />
+    //   <Divider className={classes.divider} />
+    //   <Conclusion />
+    // </Card>
   );
 }

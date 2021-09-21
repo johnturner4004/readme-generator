@@ -62,7 +62,7 @@ ${description}
 
   return (
     <>
-      <div className={classes.row}>
+      {/* <div className={classes.row}> */}
         <div className={classes.column}>
           <TextField
             className={classes.spacing}
@@ -72,7 +72,6 @@ ${description}
             label="Project name"
             placeholder="Not the repo name"
           />
-          <Button id="create" variant="contained" color="primary" onClick={() => console.log('')}>Create New</Button>
           <TextField
             className={classes.spacing}
             variant="outlined"
@@ -83,7 +82,7 @@ ${description}
             label="Image URL"
             placeholder="or relative path"
           />
-        </div>
+        {/* </div> */}
         <TextField
           className={clsx(classes.column, classes.spacing)}
           multiline
