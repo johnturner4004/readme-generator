@@ -73,7 +73,7 @@ export default function TechList() {
         {Languages.map(language => {
           return (
             <div className={classes.techList} key={language.id}>
-              <img className={classes.icon} value={language.id}src={`${language.icon}`} alt={`${language.name}`} />
+              <img className={classes.icon} value={language.id} src={`${language.icon}`} alt={`${language.name}`} />
               <FormControlLabel 
                 control={<Checkbox color="primary" 
                   onChange={handleChange} 

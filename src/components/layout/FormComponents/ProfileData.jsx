@@ -9,14 +9,14 @@ import { useSelector } from "react-redux";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import Divider from "@material-ui/core/Divider";
 import Collapse from "@material-ui/core/Collapse";
-import { theme } from "../../Theme/Theme";
+import { theme } from "../../../Theme/Theme";
 import { grey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(() => ({
   column: {
     display: "flex",
     flexDirection: "column",
-    width: "50%",
+    width: "100%",
   },
   row: {
     display: "flex",
@@ -33,10 +33,10 @@ const useStyles = makeStyles(() => ({
     padding: 0,
     alignItems: "center",
     color: theme.palette.primary.main,
-    transition: 'all 1s ease', 
+    transition: "all 1s ease",
     "&:hover": {
       backgroundColor: grey[200],
-      boxShadow: '0 0 5px 5px' + grey[200]
+      boxShadow: "0 0 5px 5px" + grey[200],
     },
   },
   divider: {
@@ -62,26 +62,22 @@ export default function ProjectOverview() {
 
   return (
     <Container className={classes.column}>
-      <Container>
-        <Container className={classes.title} onClick={() => setToggle(!toggle)}>
-          <Typography variant="h3">
-            Profile Data
-          </Typography>
-          <ArrowCircleDownIcon style={style} fontSize="large" />
-        </Container>
-        <Divider />
-        <Collapse in={toggle}>
-          <Typography variant="body1">
-            This is information stored in your user profile. In most projects it
-            will be the same however there may where there may be an exception
-            to that. For instance if you are writing a readme for a joint
-            project that is stored in someone elses Github account you will want
-            to change the Github username to their username so it generates the
-            correct shields. Otherwise they will all read either "0" or "none"
-            depending on which shield it is.
-          </Typography>
-        </Collapse>
+      <Container className={classes.title} onClick={() => setToggle(!toggle)}>
+        <Typography variant="h3">Profile Data</Typography>
+        <ArrowCircleDownIcon style={style} fontSize="large" />
       </Container>
+      <Divider />
+      <Collapse in={toggle}>
+        <Typography variant="body1">
+          This is information stored in your user profile. In most projects it
+          will be the same however there may where there may be an exception to
+          that. For instance if you are writing a readme for a joint project
+          that is stored in someone elses Github account you will want to change
+          the Github username to their username so it generates the correct
+          shields. Otherwise they will all read either "0" or "none" depending
+          on which shield it is.
+        </Typography>
+      </Collapse>
       <TextField
         className={classes.spacing}
         variant="outlined"

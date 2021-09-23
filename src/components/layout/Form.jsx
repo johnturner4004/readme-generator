@@ -2,16 +2,19 @@ import Card from "@material-ui/core/Card";
 import Divider from "@material-ui/core/Divider";
 import makeStyles from "@material-ui/styles/makeStyles";
 import LicenseList from "./LicenseList";
-import ProjectOverview from "../FormComponents/ProjectOverview";
 import TechList from "./TechList";
-import ProfileData from '../FormComponents/ProfileData';
-import ProjectData from "../FormComponents/ProjectData";
+import ProfileData from "./FormComponents/ProfileData";
+import ProjectData from "./FormComponents/ProjectData";
+import Container from "@material-ui/core/Container";
+import ProjectName from "./ProjectName";
 
 const useStyles = makeStyles({
   formCard: {
-    padding: 10,
     marginLeft: 20,
     marginRight: 20,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
   },
   divider: {
     marginTop: 20,
@@ -19,13 +22,18 @@ const useStyles = makeStyles({
   },
   twoColumn: {
     width: "60%",
+    padding: 0,
+    margin: 0,
   },
   oneColumn: {
     width: "40%",
+    padding: 0,
+    margin: 0,
   },
   row: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: 'flex-start',
   },
 });
 
@@ -33,24 +41,18 @@ export default function Form() {
   const classes = useStyles();
 
   return (
-      <Card className={classes.formCard}>
+    <Card className={classes.formCard}>
+      <Container className={classes.oneColumn}>
         <ProfileData />
         <Divider className={classes.divider} />
         <ProjectData />
-      </Card>
-    // <Card className={classes.formCard}>
-    //   <div className={classes.row}>
-    //     <ProjectOverview className={classes.twoColumn} />
-    //     <Shields className={classes.oneColumn} />
-    //   </div>
-    //   <Divider className={classes.divider} />
-    //   <TechList />
-    //   <Divider className={classes.divider} />
-    //   <GettingStarted />
-    //   <Divider className={classes.divider} />
-    //   <LicenseList />
-    //   <Divider className={classes.divider} />
-    //   <Conclusion />
-    // </Card>
+      </Container>
+      <Divider orientation='vertical' variant='fullWidth' flexItem />
+      <Container className={classes.twoColumn}>
+        <TechList />
+        <Divider />
+        <LicenseList />
+      </Container>
+    </Card>
   );
 }

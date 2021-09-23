@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
   space: {
     padding: '10px',
-    width: 'calc(50% - 20px)',
+    width: 'calc(50% - 30px)',
   },
 }));
 

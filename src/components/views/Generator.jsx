@@ -4,6 +4,7 @@ import makeStyles from "@material-ui/styles/makeStyles";
 import CodeDisplay from "../layout/CodeDisplay";
 import Form from "../layout/Form";
 import MDPreview from "../layout/MDPreview";
+import ProjectName from '../layout/ProjectName'
 
 const useStyles = makeStyles({
   page: {
@@ -27,6 +28,7 @@ export default function Generator() {
 
   return (
     <Paper className={classes.paper}>
+      <ProjectName />
       <Form />
       <Grid container className={classes.gridContainer} direction="row">
         <Grid item xs={12} sm={6}>

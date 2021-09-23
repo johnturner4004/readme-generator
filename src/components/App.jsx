@@ -1,31 +1,32 @@
-import Container from "@material-ui/core/Container";
-import makeStyles from "@material-ui/styles/makeStyles";
-import Header from "./layout/Header";
-import Login from "./views/Login";
+import Container from '@material-ui/core/Container';
+import makeStyles from '@material-ui/styles/makeStyles';
+import Header from './layout/Header';
+import Login from './views/Login';
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
-} from "react-router-dom";
-import Generator from "./views/Generator";
-import UserProtectedRoute from "./ProtectedRoutes/UserProtectedRoute";
+} from 'react-router-dom';
+import Generator from './views/Generator';
+import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
 import Registration from "./views/Profile";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import ProjectList from './views/ProjectList';
 
 const useStyles = makeStyles({
   page: {
     padding: 0,
     margin: 0,
-    width: "100vw",
-    maxWidth: "100vw",
+    width: '100vw',
+    maxWidth: '100vw',
   },
   paper: {
     paddingBottom: 40,
     paddingTop: 20,
     margin: 20,
-    height: "100%",
+    height: '100%',
   },
 });
 
@@ -34,7 +35,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "FETCH_USER" });
+    dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
   return (
@@ -42,14 +43,17 @@ function App() {
       <Header />
       <Router>
         <Switch>
-          <Redirect exact from="/" to="/login" />
-          <UserProtectedRoute exact path="/login" authRedirect="/generator">
+          <Redirect exact from='/' to='/login' />
+          <UserProtectedRoute exact path='/login' authRedirect='/generator'>
             <Login />
           </UserProtectedRoute>
-          <UserProtectedRoute exact path="/generator">
+          <UserProtectedRoute exact path='/generator'>
             <Generator />
           </UserProtectedRoute>
-          <Route exact path="/registration">
+          <UserProtectedRoute exact path='/project-list'>
+            <ProjectList />
+            </UserProtectedRoute>
+          <Route exact path='/registration'>
             <Registration />
           </Route>
         </Switch>

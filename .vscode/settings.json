@@ -6,5 +6,7 @@
     "rehype",
     "technologieslist",
     "webfonts"
-  ]
+  ],
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all"
 }
