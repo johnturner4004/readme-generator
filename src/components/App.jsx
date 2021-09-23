@@ -1,7 +1,7 @@
 import Container from "@material-ui/core/Container";
 import makeStyles from "@material-ui/styles/makeStyles";
 import Header from "./layout/Header";
-import Login from './layout/Login'
+import Login from "./layout/Login";
 import {
   HashRouter as Router,
   Route,
@@ -9,9 +9,9 @@ import {
   Switch,
 } from "react-router-dom";
 import Generator from "./layout/Generator";
-import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
-import Registration from './layout/Profile';
-import { useDispatch  } from 'react-redux';
+import UserProtectedRoute from "./ProtectedRoutes/UserProtectedRoute";
+import Registration from "./layout/Profile";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 const useStyles = makeStyles({
@@ -34,7 +34,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' })
+    dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
   return (
@@ -42,14 +42,14 @@ function App() {
       <Header />
       <Router>
         <Switch>
-          <Redirect exact from='/' to='/login' />
+          <Redirect exact from="/" to="/login" />
           <UserProtectedRoute exact path="/login" authRedirect="/generator">
             <Login />
           </UserProtectedRoute>
           <UserProtectedRoute exact path="/generator">
             <Generator />
           </UserProtectedRoute>
-          <Route exact path='/registration'>
+          <Route exact path="/registration">
             <Registration />
           </Route>
         </Switch>

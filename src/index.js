@@ -9,6 +9,8 @@ import './index.css';
 import rootReducer from './redux/reducer/_root.reducer';
 import rootSaga from './redux/sagas/_root.saga';
 import reportWebVitals from './reportWebVitals';
+import ThemeProvider from '@material-ui/styles/ThemeProvider'
+import { theme } from './Theme/Theme';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -25,9 +27,11 @@ sagaMiddleware.run( rootSaga );
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ThemeProvider>
   </Provider>,
   document.getElementById('root')
 );

@@ -20,6 +20,19 @@ const useStyles = makeStyles(() => ({
   spacing: {
     padding: "10px",
   },
+  title: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 0,
+    alignItems: "center",
+    color: theme.palette.primary.main,
+    transition: 'all 1s ease', 
+    "&:hover": {
+      backgroundColor: grey[200],
+      boxShadow: '0 0 5px 5px' + grey[200]
+    },
+  }
 }));
 
 //project name
