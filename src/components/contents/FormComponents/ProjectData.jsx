@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import { theme } from '../../../Theme/Theme'
+import grey from "@material-ui/core/colors/grey";
 
 const useStyles = makeStyles(() => ({
   column: {
@@ -37,14 +39,14 @@ const useStyles = makeStyles(() => ({
 
 //project name
 
-//github repo
-//description
-//image url
-//getting started
-//prerequisites
-//installation
-//usage
-//acknowledgements
+// DONE  github repo
+// description
+// image url
+// getting started
+// prerequisites
+// installation
+// usage
+// acknowledgements
 
 export default function ProjectData() {
   const classes = useStyles();
