@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Login from '../layout/Login';
+import Login from '../views/Login';
 import { useSelector } from 'react-redux';
 
 export default function ProtectedRoute(props) {

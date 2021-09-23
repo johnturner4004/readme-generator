@@ -1,14 +1,11 @@
 import Card from "@material-ui/core/Card";
 import Divider from "@material-ui/core/Divider";
 import makeStyles from "@material-ui/styles/makeStyles";
-import Conclusion from "./Conclusion";
-import GettingStarted from "./GettingStarted";
 import LicenseList from "./LicenseList";
-import ProjectOverview from "./ProjectOverview";
-import Shields from "./Shields";
+import ProjectOverview from "../FormComponents/ProjectOverview";
 import TechList from "./TechList";
-import ProfileData from './ProfileData';
-import ProjectData from "./ProjectData";
+import ProfileData from '../FormComponents/ProfileData';
+import ProjectData from "../FormComponents/ProjectData";
 
 const useStyles = makeStyles({
   formCard: {

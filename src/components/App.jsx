@@ -1,16 +1,16 @@
 import Container from "@material-ui/core/Container";
 import makeStyles from "@material-ui/styles/makeStyles";
 import Header from "./layout/Header";
-import Login from "./layout/Login";
+import Login from "./views/Login";
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
 } from "react-router-dom";
-import Generator from "./layout/Generator";
+import Generator from "./views/Generator";
 import UserProtectedRoute from "./ProtectedRoutes/UserProtectedRoute";
-import Registration from "./layout/Profile";
+import Registration from "./views/Profile";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 

@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import Divider from "@material-ui/core/Divider";
 import Collapse from "@material-ui/core/Collapse";
-import { theme } from "../../../Theme/Theme";
+import { theme } from "../../Theme/Theme";
 import { grey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(() => ({
@@ -64,7 +64,7 @@ export default function ProjectOverview() {
     <Container className={classes.column}>
       <Container>
         <Container className={classes.title} onClick={() => setToggle(!toggle)}>
-          <Typography variant="h3" component="h2">
+          <Typography variant="h3">
             Profile Data
           </Typography>
           <ArrowCircleDownIcon style={style} fontSize="large" />
