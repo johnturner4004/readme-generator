@@ -9,7 +9,8 @@ const passport = require('./strategies/user.strategy');
 
 const technologiesRouter = require('./routes/technologies.router');
 const licensesRouter = require('./routes/licenses.router');
-const userRouter = require('./routes/user.router')
+const userRouter = require('./routes/user.router');
+const readmeRouter = require('./routes/readme.router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +23,7 @@ app.use(passport.session());
 app.use('/api/technologies', technologiesRouter);
 app.use('/api/licenses', licensesRouter);
 app.use('/api/user', userRouter);
+app.use('/api/readme', readmeRouter);
 
 app.use(express.static('build'));
 

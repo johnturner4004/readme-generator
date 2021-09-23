@@ -20,21 +20,23 @@ router.post('/logout', (req, res) => {
 })
 
 router.post('/profile', (req, res) => {
-  const sqlText = `INSERT INTO "user" (username, password, accountlevel, first_name, last_name, email, github, linkedin)
+  const sqlText = `INSERT INTO "user" (username, password,first_name, last_name,  accountlevel, githubid, linkedinurl, email)
     VALUES($1, $2, $3, $4, $5, $6, $7, $8)`;
+
+    console.log(`in profile router`)
 
   const profile = req.body;
   
   const username = profile.username;
   const password = encryptLib.encryptPassword(profile.password);
-  const accountLevel = 1;
   const firstName = profile.firstName;
   const lastName = profile.lastName;
+  const accountLevel = 1;
+  const githubid = profile.github;
+  const linkedinurl = profile.linkedin;
   const email = profile.email;
-  const github = profile.github;
-  const linkedin = profile.linkedin;
   
-  pool.query(sqlText, [username, password, accountLevel, firstName, lastName, email, github, linkedin])
+  pool.query(sqlText, [username, password, firstName, lastName, accountLevel, githubid, linkedinurl, email])
   .then(() => {
     res.sendStatus(201);
   })
