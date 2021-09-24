@@ -84,6 +84,7 @@ export default function ProjectSelect() {
 
   const handleSubmit = () => {
     if (newProjectName !== '') {
+      dispatch({ type: 'CREATE_NEW_FILE', payload: newProjectName });
     
     } else if (readmeId !== '') {
     dispatch({ type: 'FETCH_SELECTED_FILE', payload: readmeId});

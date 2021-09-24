@@ -18,7 +18,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     res.send(result.rows)
   })
   .catch(error => {
-    console.log(`Error querying readme-files: ${error}`)
+    console.log(`Error querying readme files: ${error}`)
   });
 });
 
@@ -38,8 +38,25 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     res.send(result.rows)
   })
   .catch(error => {
-    console.log(`Error querying readme-files: ${error}`)
+    console.log(`Error querying selected readme file: ${error}`)
   });
+});
+
+router.post('/', (req, res) => {
+  const sqlText = `INSERT INTO readmeData (userid, project_name)
+	VALUES ($1, $2)
+	RETURNING id;`
+
+  const userid = req.user.id;
+  const projectName = req.body.project_name;
+
+  pool.query(sqlText, [userid, projectName])
+  .then(result => {
+    res.send(result.rows)
+  })
+  .catch(error =>{
+    console.log(`Error posting new readme: ${error}`)
+  })
 });
 
 module.exports = router;
