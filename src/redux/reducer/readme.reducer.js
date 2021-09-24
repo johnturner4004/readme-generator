@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const files = (state = {} , action) => {
+const files = (state = [], action) => {
   switch (action.type) {
     case 'SET_MY_FILES':
       return action.payload;
@@ -9,8 +9,8 @@ const files = (state = {} , action) => {
   }
 }
 
-const reademe = combineReducers({
+const readme = combineReducers({
   files,
-})
+});
 
-export default reademe;
+export default readme;

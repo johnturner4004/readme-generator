@@ -1,17 +1,13 @@
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import { useState } from 'react';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   paper: {
@@ -36,27 +32,54 @@ const useStyles = makeStyles({
   },
   button: {
     margin: 10,
-  }
+  },
 });
 
 export default function ProjectSelect() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  
+  const [readmeId, setReadmeId] = useState('');
+  const [newProjectName, setNewProjectName] = useState('');
+  const [disableText, setDisableText] = useState(false);
+  const [disableSelect, setDisableSelect] = useState(false);
+  const [textHelper, setTextHelper] = useState('');
+  const [selectHelper, setSelectHelper] = useState('');
 
-  const [readmeId, setReadmeId] = useState();
+  const inputHelper = 'You can only use one input. Clear current selection to change'
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_MY_FILES' });
-  }, [dispatch]);
+  const disableInputs = (text, id) => {
+    if (id !== '') {
+      setDisableText(true);
+      setTextHelper(inputHelper);
+    } else if (text !== '') {
+      setDisableSelect(true);
+      setSelectHelper(inputHelper)
+      
+    } else {
+      setDisableSelect(false);
+      setDisableText(false);
+      setTextHelper('');
+      setSelectHelper('');
+    }
+  }
 
-  const handleChange = (event) => {
+  const existingProjects = useSelector((store) => store.readme.files);
+  
+  const handleTextChange = (event) => {
+    setNewProjectName(event.target.value);
+    disableInputs(event.target.value, '');
+  }
+
+  const handleSelectChange = (event) => {
     setReadmeId(event.target.value);
+    disableInputs('', event.target.value);
   };
 
   return (
     <Paper className={classes.paper}>
       <Card className={classes.card}>
-        <Typography className={classes.text} variant='h4' component='body1'>
+        <Typography className={classes.text} variant='h4' component='p'>
           Would you like to
         </Typography>
         <TextField
@@ -64,27 +87,36 @@ export default function ProjectSelect() {
           variant='outlined'
           id='newReadme'
           label='Create new readme'
+          onChange={handleTextChange}
+          disabled={disableText}
+          helperText={textHelper}
         />
-        <Typography className={classes.text} variant='h4' component='body1'>
+        <Typography className={classes.text} variant='h4' component='p'>
           or
         </Typography>
         <TextField
           select
           fullWidth
           sx={{ minWidth: '250px' }}
-          labelId='existingReadmeLabel'
           variant='outlined'
           id='existingReadme'
           value={readmeId}
           label={'Edit existing readme'}
-          onChange={handleChange}
+          onChange={handleSelectChange}
+          disabled={disableSelect}
+          helperText={selectHelper}
         >
           <MenuItem value=''>
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'Test'}>Test</MenuItem>
+          {existingProjects ? existingProjects.map((file) => {
+            return(
+            <MenuItem value={file.id} key={file.id}>{file.project_name}</MenuItem>
+          )}):''}
         </TextField>
-        <Button className={classes.button} variant='contained' color='primary'>Submit</Button>
+        <Button className={classes.button} variant='contained' color='primary'>
+          Submit
+        </Button>
       </Card>
     </Paper>
   );

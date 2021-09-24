@@ -11,7 +11,7 @@ import {
 import Generator from './views/Generator';
 import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
 import Registration from "./views/Profile";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import ProjectSelect from './views/ProjectSelect';
 
@@ -36,6 +36,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: 'FETCH_MY_FILES' })
   }, [dispatch]);
 
   return (
