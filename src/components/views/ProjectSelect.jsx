@@ -45,26 +45,32 @@ export default function ProjectSelect() {
   const [disableSelect, setDisableSelect] = useState(false);
   const [textHelper, setTextHelper] = useState('');
   const [selectHelper, setSelectHelper] = useState('');
+  const [error, setError] = useState(false)
 
   const inputHelper = 'You can only use one input. Clear current selection to change'
-
+  const missingInput = 'You must either enter a project name or select an readme'
+  
+  const existingProjects = useSelector((store) => store.readme.files);
+  
   const disableInputs = (text, id) => {
     if (id !== '') {
       setDisableText(true);
       setTextHelper(inputHelper);
+      setSelectHelper('');
+      setError(false);
     } else if (text !== '') {
       setDisableSelect(true);
-      setSelectHelper(inputHelper)
-      
+      setSelectHelper(inputHelper);
+      setTextHelper('');
+      setError(false);
     } else {
       setDisableSelect(false);
       setDisableText(false);
       setTextHelper('');
       setSelectHelper('');
-    }
-  }
-
-  const existingProjects = useSelector((store) => store.readme.files);
+      setError(false);
+    };
+  };
   
   const handleTextChange = (event) => {
     setNewProjectName(event.target.value);
@@ -77,8 +83,16 @@ export default function ProjectSelect() {
   };
 
   const handleSubmit = () => {
+    if (newProjectName !== '') {
+    
+    } else if (readmeId !== '') {
     dispatch({ type: 'FETCH_SELECTED_FILE', payload: readmeId});
-  }
+    } else {
+      setTextHelper(missingInput);
+      setSelectHelper(missingInput);
+      setError(true)
+    };
+  };
 
   return (
     <Paper className={classes.paper}>
@@ -93,6 +107,7 @@ export default function ProjectSelect() {
           label='Create new readme'
           onChange={handleTextChange}
           disabled={disableText}
+          error={error}
           helperText={textHelper}
         />
         <Typography className={classes.text} variant='h4' component='p'>
@@ -108,6 +123,7 @@ export default function ProjectSelect() {
           label={'Edit existing readme'}
           onChange={handleSelectChange}
           disabled={disableSelect}
+          error={error}
           helperText={selectHelper}
         >
           <MenuItem value=''>
