@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ProjectList() {
+export default function ProjectSelect() {
   const classes = useStyles();
   const dispatch = useDispatch();
 

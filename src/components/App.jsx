@@ -13,7 +13,7 @@ import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
 import Registration from "./views/Profile";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import ProjectList from './views/ProjectList';
+import ProjectSelect from './views/ProjectSelect';
 
 const useStyles = makeStyles({
   page: {
@@ -44,14 +44,14 @@ function App() {
       <Router>
         <Switch>
           <Redirect exact from='/' to='/login' />
-          <UserProtectedRoute exact path='/login' authRedirect='/generator'>
+          <UserProtectedRoute exact path='/login' authRedirect='/project-select'>
             <Login />
           </UserProtectedRoute>
           <UserProtectedRoute exact path='/generator'>
             <Generator />
           </UserProtectedRoute>
-          <UserProtectedRoute exact path='/project-list'>
-            <ProjectList />
+          <UserProtectedRoute exact path='/project-select'>
+            <ProjectSelect />
             </UserProtectedRoute>
           <Route exact path='/registration'>
             <Registration />
