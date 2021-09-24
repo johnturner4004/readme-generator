@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    minWidth: '300px',
+    minWidth: '400px',
     width: 'fit-contents',
     padding: 20,
   },
@@ -76,6 +76,10 @@ export default function ProjectSelect() {
     disableInputs('', event.target.value);
   };
 
+  const handleSubmit = () => {
+    dispatch({ type: 'FETCH_SELECTED_FILE', payload: readmeId});
+  }
+
   return (
     <Paper className={classes.paper}>
       <Card className={classes.card}>
@@ -114,7 +118,7 @@ export default function ProjectSelect() {
             <MenuItem value={file.id} key={file.id}>{file.project_name}</MenuItem>
           )}):''}
         </TextField>
-        <Button className={classes.button} variant='contained' color='primary'>
+        <Button className={classes.button} variant='contained' color='primary' onClick={handleSubmit}>
           Submit
         </Button>
       </Card>

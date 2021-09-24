@@ -9,6 +9,15 @@ const files = (state = [], action) => {
   }
 }
 
+const selected = (state = {}, action) => {
+  switch (action.type) {
+    case 'SET_SELECTED_FILE':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 const readme = combineReducers({
   files,
 });

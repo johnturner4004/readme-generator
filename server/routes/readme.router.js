@@ -19,7 +19,27 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   })
   .catch(error => {
     console.log(`Error querying readme-files: ${error}`)
+  });
+});
+
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  const sqlText = `SELECT rd.*, json_agg(tl.*), l.* FROM readmedata AS rd 
+	JOIN licenses AS l ON rd.licenseid = l.id
+	JOIN techjoin AS tj ON rd.id = tj.readmeid
+	JOIN technologieslist AS tl ON tj.techid = tl.id
+	WHERE rd.userid = $1 AND rd.id = $2
+	GROUP BY rd.id, l.id;`
+
+  const userid = req.user.id;
+  const id = req.params.id;
+
+  pool.query(sqlText, [userid, id])
+  .then(result => {
+    res.send(result.rows)
   })
-})
+  .catch(error => {
+    console.log(`Error querying readme-files: ${error}`)
+  });
+});
 
 module.exports = router;
