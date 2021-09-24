@@ -3,7 +3,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* sendProfile(action) {
   try{
-    console.log(`in new profile`);
     yield axios.post('api/user/profile', action.payload);
     yield put({ type: 'LOGIN', payload: action.payload });
   } catch (error) {

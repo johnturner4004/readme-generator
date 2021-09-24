@@ -7,15 +7,17 @@ import shieldCode from './shieldCode.reducer';
 import technologiesReducer from './technologies.reducer';
 import textInput from './textInput.reducer';
 import user from './user.reducer'
+import reademe from './reademe.reducer'
 
 const rootReducer = combineReducers({
-  gettingStartedCode,
-  overviewCode,
-  shieldCode,
-  textInput,
-  conclusionCode,
+  // gettingStartedCode,
+  // overviewCode,
+  // shieldCode,
+  // textInput,
+  // conclusionCode,
   technologiesReducer,
   licensesReducer,
+  reademe,
   user,
 });
 
