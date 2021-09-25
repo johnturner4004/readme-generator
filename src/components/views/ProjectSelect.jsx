@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles({
   paper: {
@@ -38,6 +39,7 @@ const useStyles = makeStyles({
 export default function ProjectSelect() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   
   const [readmeId, setReadmeId] = useState('');
   const [newProjectName, setNewProjectName] = useState('');
@@ -85,9 +87,10 @@ export default function ProjectSelect() {
   const handleSubmit = () => {
     if (newProjectName !== '') {
       dispatch({ type: 'CREATE_NEW_FILE', payload: newProjectName });
-    
+      history.push('/generator');
     } else if (readmeId !== '') {
     dispatch({ type: 'FETCH_SELECTED_FILE', payload: readmeId});
+    history.push('/generator');
     } else {
       setTextHelper(missingInput);
       setSelectHelper(missingInput);
