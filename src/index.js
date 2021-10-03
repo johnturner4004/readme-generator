@@ -28,9 +28,9 @@ sagaMiddleware.run( rootSaga );
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <App />
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
     </ThemeProvider>
   </Provider>,
   document.getElementById('root')

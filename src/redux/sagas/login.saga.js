@@ -11,6 +11,7 @@ function* login(action) {
     yield axios.post('/api/user/login', action.payload, config);
 
     yield put({ type: 'FETCH_USER' })
+    yield put({ type: 'FETCH_MY_FILES' })
   } catch (error) { 
     console.log(`Error logging in user: ${error}`);
   }

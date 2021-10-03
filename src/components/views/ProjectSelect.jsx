@@ -40,20 +40,22 @@ export default function ProjectSelect() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
-  
+
   const [readmeId, setReadmeId] = useState('');
   const [newProjectName, setNewProjectName] = useState('');
   const [disableText, setDisableText] = useState(false);
   const [disableSelect, setDisableSelect] = useState(false);
   const [textHelper, setTextHelper] = useState('');
   const [selectHelper, setSelectHelper] = useState('');
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
 
-  const inputHelper = 'You can only use one input. Clear current selection to change'
-  const missingInput = 'You must either enter a project name or select an readme'
-  
+  const inputHelper =
+    'You can only use one input. Clear current selection to change';
+  const missingInput =
+    'You must either enter a project name or select an readme';
+
   const existingProjects = useSelector((store) => store.readme.files);
-  
+
   const disableInputs = (text, id) => {
     if (id !== '') {
       setDisableText(true);
@@ -71,13 +73,13 @@ export default function ProjectSelect() {
       setTextHelper('');
       setSelectHelper('');
       setError(false);
-    };
+    }
   };
-  
+
   const handleTextChange = (event) => {
     setNewProjectName(event.target.value);
     disableInputs(event.target.value, '');
-  }
+  };
 
   const handleSelectChange = (event) => {
     setReadmeId(event.target.value);
@@ -87,15 +89,22 @@ export default function ProjectSelect() {
   const handleSubmit = () => {
     if (newProjectName !== '') {
       dispatch({ type: 'CREATE_NEW_FILE', payload: newProjectName });
-      history.push('/generator');
+      const maxId = Math.max.apply(
+        Math,
+        existingProjects.map(function (existingProjects) {
+          return existingProjects.id;
+        }),
+      );
+      history.push(`/generator/${maxId + 1}`);
     } else if (readmeId !== '') {
-    dispatch({ type: 'FETCH_SELECTED_FILE', payload: readmeId});
-    history.push('/generator');
+      dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: readmeId }});
+      console.log('##########################################################################################################################', readmeId);
+      history.push(`/generator/${readmeId}`);
     } else {
       setTextHelper(missingInput);
       setSelectHelper(missingInput);
-      setError(true)
-    };
+      setError(true);
+    }
   };
 
   return (
@@ -133,12 +142,22 @@ export default function ProjectSelect() {
           <MenuItem value=''>
             <em>None</em>
           </MenuItem>
-          {existingProjects ? existingProjects.map((file) => {
-            return(
-            <MenuItem value={file.id} key={file.id}>{file.project_name}</MenuItem>
-          )}):''}
+          {existingProjects !== []
+            ? existingProjects.map((file) => {
+                return (
+                  <MenuItem value={file.id} key={file.id}>
+                    {file.project_name}
+                  </MenuItem>
+                );
+              })
+            : ''}
         </TextField>
-        <Button className={classes.button} variant='contained' color='primary' onClick={handleSubmit}>
+        <Button
+          className={classes.button}
+          variant='contained'
+          color='primary'
+          onClick={handleSubmit}
+        >
           Submit
         </Button>
       </Card>

@@ -9,7 +9,7 @@ const files = (state = [], action) => {
   }
 }
 
-const selected = (state = {}, action) => {
+const selected = (state = '', action) => {
   switch (action.type) {
     case 'SET_SELECTED_FILE':
       return action.payload;
@@ -20,6 +20,7 @@ const selected = (state = {}, action) => {
 
 const readme = combineReducers({
   files,
+  selected,
 });
 
 export default readme;

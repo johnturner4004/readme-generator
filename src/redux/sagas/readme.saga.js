@@ -12,8 +12,11 @@ function* getReadmeList() {
 
 function* getSelectedReadme(action) {
   try{
-    const id = action.payload
+    console.log('hello', action.payload);
+    const id = action.payload.id
+    yield console.log(id);
     const response = yield axios.get(`api/readme/${id}`);
+    yield console.log(response.data);
     yield put({ type: 'SET_SELECTED_FILE', payload: response.data });
   } catch (error) {
     console.log(`Error getting selected file: ${error}`);
@@ -25,7 +28,7 @@ function* createNewReadme(action) {
   const projectName = action.payload;
   const response = yield axios.post('api/readme/', { project_name: projectName });
   const id = response.data[0].id;
-  yield put({ type: 'FETCH_SELECTED_FILE', payload: id })
+  yield put({ type: 'FETCH_SELECTED_FILE', payload: { id: id }})
   } catch (error) {
     console.log(`Error creating new file: ${error}`);
   };

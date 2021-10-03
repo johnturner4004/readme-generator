@@ -14,6 +14,7 @@ import Registration from "./views/Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import ProjectSelect from './views/ProjectSelect';
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles({
   page: {
@@ -36,7 +37,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
-    dispatch({ type: 'FETCH_MY_FILES' })
+    dispatch({ type: 'FETCH_MY_FILES' });
   }, [dispatch]);
 
   return (
@@ -48,7 +49,7 @@ function App() {
           <UserProtectedRoute exact path='/login' authRedirect='/project-select'>
             <Login />
           </UserProtectedRoute>
-          <UserProtectedRoute exact path='/generator'>
+          <UserProtectedRoute exact path='/generator/:id'>
             <Generator />
           </UserProtectedRoute>
           <UserProtectedRoute exact path='/project-select'>
@@ -56,6 +57,9 @@ function App() {
             </UserProtectedRoute>
           <Route exact path='/registration'>
             <Registration />
+          </Route>
+          <Route>
+            <Typography variant='h2'>404</Typography>
           </Route>
         </Switch>
       </Router>

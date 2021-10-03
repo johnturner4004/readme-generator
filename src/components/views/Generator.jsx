@@ -4,7 +4,9 @@ import makeStyles from "@material-ui/styles/makeStyles";
 import CodeDisplay from "../layout/CodeDisplay";
 import Form from "../layout/Form";
 import MDPreview from "../layout/MDPreview";
-import ProjectName from '../layout/ProjectName'
+import ProjectName from '../layout/ProjectName';
+import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 
 const useStyles = makeStyles({
   page: {
@@ -25,6 +27,10 @@ const useStyles = makeStyles({
 
 export default function Generator() {
   const classes = useStyles();
+
+  const { id } = useParams();
+
+  const file = useSelector(store => store.readme.selected)
 
   return (
     <Paper className={classes.paper}>

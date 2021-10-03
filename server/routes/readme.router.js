@@ -4,12 +4,13 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware'); 
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-  const sqlText = `SELECT rd.*, json_agg(tl.*), l.* FROM readmedata AS rd 
-	JOIN licenses AS l ON rd.licenseid = l.id
-	JOIN techjoin AS tj ON rd.id = tj.readmeid
-	JOIN technologieslist AS tl ON tj.techid = tl.id
+  const sqlText = `SELECT rd.*, json_agg(tl.*) AS technologies_used, json_agg(l.*) AS selected_license FROM readmedata AS rd 
+	LEFT JOIN licenses AS l ON rd.licenseid = l.id
+	LEFT JOIN techjoin AS tj ON rd.id = tj.readmeid
+	LEFT JOIN technologieslist AS tl ON tj.techid = tl.id
 	WHERE rd.userid = $1
-	GROUP BY rd.id, l.id;`
+	GROUP BY rd.id
+	ORDER BY rd.id ASC;`
 
   const userid = req.user.id;
 
