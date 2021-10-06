@@ -25,9 +25,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlText = `SELECT rd.*, json_agg(tl.*), l.* FROM readmedata AS rd 
-	JOIN licenses AS l ON rd.licenseid = l.id
-	JOIN techjoin AS tj ON rd.id = tj.readmeid
-	JOIN technologieslist AS tl ON tj.techid = tl.id
+	LEFT JOIN licenses AS l ON rd.licenseid = l.id
+	LEFT JOIN techjoin AS tj ON rd.id = tj.readmeid
+	LEFT JOIN technologieslist AS tl ON tj.techid = tl.id
 	WHERE rd.userid = $1 AND rd.id = $2
 	GROUP BY rd.id, l.id;`
 
@@ -36,7 +36,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
   pool.query(sqlText, [userid, id])
   .then(result => {
-    res.send(result.rows)
+    res.send(result.rows);
   })
   .catch(error => {
     console.log(`Error querying selected readme file: ${error}`)
