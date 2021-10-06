@@ -46,8 +46,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 router.post('/', (req, res) => {
   const sqlText = `INSERT INTO readmeData (userid, project_name)
 	VALUES ($1, $2)
-	RETURNING id;`
-
+	RETURNING id;`;
   const userid = req.user.id;
   const projectName = req.body.project_name;
 

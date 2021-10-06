@@ -2,7 +2,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
+import { useParams } from 'react-router';
 
 const useStyles = makeStyles({
   title: {
@@ -13,9 +13,8 @@ const useStyles = makeStyles({
 
 export default function ProjectName() {
   const classes = useStyles();
-  const history = useHistory();
-  const { pathIn } = useParams();
-  const pathId = Number(pathIn);
+  const pathIn = useParams();
+  const pathId = Number(pathIn.id);
   const dispatch = useDispatch();
 
   const file = useSelector((store) => store.readme.selected[0]);
@@ -29,7 +28,7 @@ export default function ProjectName() {
       } 
     };
     checkId(Number(pathId) !== 0 ? Number(pathId) : '');
-  }, [pathId, history, dispatch]);
+  }, [pathId, dispatch]);
 
   return (
     <Typography className={classes.title} variant='h2'>

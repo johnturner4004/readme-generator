@@ -98,7 +98,6 @@ export default function ProjectSelect() {
       history.push(`/generator/${maxId + 1}`);
     } else if (readmeId !== '') {
       dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: readmeId }});
-      console.log('##########################################################################################################################', readmeId);
       history.push(`/generator/${readmeId}`);
     } else {
       setTextHelper(missingInput);

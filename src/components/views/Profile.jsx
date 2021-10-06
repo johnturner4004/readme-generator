@@ -68,7 +68,7 @@ export default function Registration() {
       };
 
       dispatch({ type: 'NEW_PROFILE', payload: profile });
-      history.push('/project-list');
+      history.push('/project-select');
     } else {
       console.log(`passwords don't match`)
     }
