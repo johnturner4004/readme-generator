@@ -6,9 +6,13 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { theme } from "../../../Theme/Theme";
+import { Component } from 'react';
+import { ConstructionOutlined } from "@mui/icons-material";
+import moment from 'moment';
+
 
 const useStyles = makeStyles(() => ({
   column: {
@@ -47,16 +51,35 @@ export default function ProjectOverview() {
   const classes = useStyles();
 
   const user = useSelector((store) => store.user);
+  const file = useSelector((store) => store.readme.selected);
 
-  const [githubId, setGithubId] = useState(user.github);
-  const [linkedInId, setLinedInId] = useState(user.linkedin);
-  const [email, setEmail] = useState(user.email);
+  const [githubId, setGithubId] = useState(file.github);
+  const [linkedInId, setLinedInId] = useState(file.linkedin);
+  const [email, setEmail] = useState(file.email);
+  const [timestamp, setTimestamp] =useState(file.time_stamp)
   const [toggle, setToggle] = useState(false);
-
+  const unsavedFiles = localStorage.time_stamp ? true : false;
+  
+  useEffect(() => {
+    if (unsavedFiles) {
+      if (localStorage.github) {setGithubId(localStorage.github)};
+      if (localStorage.linkedin) {setLinedInId(localStorage.linkedin)};
+      if (localStorage.email) {setEmail(localStorage.email)};
+    }
+  }, [file]);
+    
   const style = {
     transform: toggle ? "rotate(-180deg)" : "",
     transition: "transform 500ms ease",
   };
+
+  const handleChangeGithub = (e) => {
+    setGithubId(e.target.value);
+    localStorage.setItem('github', `${e.target.value}`)
+    console.log('useState', githubId);
+    console.log('localStorage', localStorage.github);
+    localStorage.setItem('time_stamp', String(moment(Date.now()).format()))
+  }
 
   return (
     <Container className={classes.column}>
@@ -82,6 +105,7 @@ export default function ProjectOverview() {
         id="githubId"
         value={githubId}
         label="Github Username"
+        onChange={(e) => handleChangeGithub(e)}
       />
       <TextField
         className={classes.spacing}
