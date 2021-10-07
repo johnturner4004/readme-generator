@@ -9,8 +9,6 @@ import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { theme } from "../../../Theme/Theme";
-import { Component } from 'react';
-import { ConstructionOutlined } from "@mui/icons-material";
 import moment from 'moment';
 
 
@@ -73,12 +71,26 @@ export default function ProjectOverview() {
     transition: "transform 500ms ease",
   };
 
+  const updateTimeStamp = () => {
+    localStorage.setItem('time_stamp', String(moment(Date.now()).format()))
+  }
+
   const handleChangeGithub = (e) => {
     setGithubId(e.target.value);
-    localStorage.setItem('github', `${e.target.value}`)
-    console.log('useState', githubId);
-    console.log('localStorage', localStorage.github);
-    localStorage.setItem('time_stamp', String(moment(Date.now()).format()))
+    localStorage.setItem('github', `${e.target.value}`);
+    updateTimeStamp();
+  }
+
+  const handleChangeLinkedInId = (e) => {
+    setLinedInId(e.target.value);
+    localStorage.setItem('linkedin', `${e.target.value}`);
+    updateTimeStamp();
+  }
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+    localStorage.setItem('email', `${e.target.value}`);
+    updateTimeStamp();
   }
 
   return (
@@ -113,6 +125,7 @@ export default function ProjectOverview() {
         id="linkedInId"
         value={linkedInId}
         label="LinkedIn URL"
+        onChange={handleChangeLinkedInId}
       />
       <TextField
         className={classes.spacing}
@@ -120,6 +133,7 @@ export default function ProjectOverview() {
         id="email"
         value={email}
         label="Email"
+        onChange={handleChangeEmail}
       />
     </Container>
   );
