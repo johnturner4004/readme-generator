@@ -13,6 +13,8 @@ const htmlTagList = (state = [], action) => {
   switch (action.type) {
     case 'SET_TECHNOLOGIES_HTML_TAG_LIST':
       return action.payload;
+    case 'CLEAR_TECHNOLOGIES_HTML_TAG_LIST':
+      return [];
     default:
       return state;
   }

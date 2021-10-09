@@ -60,7 +60,6 @@ export default function ProjectOverview(props) {
   const [toggle, setToggle] = useState(false);
   const unsavedFiles = localStorage.time_stamp ? true : false;
   localStorage.setItem('unsavedFiles', unsavedFiles);
-  console.log(localStorage.unsavedFiles);
 
   const style = {
     transform: toggle ? 'rotate(-180deg)' : '',

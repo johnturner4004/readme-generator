@@ -36,8 +36,8 @@ export default function TechList() {
     
     // To counter this, the handleChange function first checks to see if the 
     // Value of the selected checkbox is already in the array using .indexOf()
-    let i = checked.indexOf(event.target.value);
-    
+    let i = checked.indexOf(Number(event.target.value));
+    console.log(i);
     // If the index === -1 then it is not currently in the array and is one that
     // is intended by the user to be added to the array. To add it, it destructures
     // the array, sorts the values, then both sets the value of the array and
