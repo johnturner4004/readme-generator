@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import moment from 'moment';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { theme } from '../../../Theme/Theme';
 
 const useStyles = makeStyles(() => ({
@@ -37,48 +37,30 @@ const useStyles = makeStyles(() => ({
       boxShadow: '0 0 5px 5px' + grey[200],
     },
   },
-  divider: {
-    // background: ,
-  },
 }));
 
 export default function ProjectOverview(props) {
-  // const dispatch = useDispatch();
   const classes = useStyles();
 
-  const file = props.file;
-
-  // const user = useSelector((store) => store.user);
-  // const file = useSelector((store) => store.readme.selected[0]);
-
-  const [githubId, setGithubId] = useState('');
-  const [linkedInId, setLinedInId] = useState('');
-  const [email, setEmail] = useState('');
-  // const [timestamp, setTimestamp] = useState('');
+  const [githubId, setGithubId] = useState(
+    localStorage.time_stamp && localStorage.github_user
+      ? localStorage.github_user
+      : props.file.github_user,
+  );
+  const [linkedInId, setLinedInId] = useState(
+    localStorage.time_stamp && localStorage.linkedin
+      ? localStorage.linkedin
+      : props.file.linkedin,
+  );
+  const [email, setEmail] = useState(
+    localStorage.time_stamp && localStorage.email
+      ? localStorage.email
+      : props.file.email,
+  );
   const [toggle, setToggle] = useState(false);
   const unsavedFiles = localStorage.time_stamp ? true : false;
-  localStorage.setItem('unsavedFiles', unsavedFiles)
+  localStorage.setItem('unsavedFiles', unsavedFiles);
   console.log(localStorage.unsavedFiles);
-
-  useEffect(() => {
-    if (file) {
-      if (unsavedFiles) {
-        if (localStorage.github_user) {
-          setGithubId(localStorage.github_user);
-        }
-        if (localStorage.linkedin) {
-          setLinedInId(localStorage.linkedin);
-        }
-        if (localStorage.email) {
-          setEmail(localStorage.email);
-        }
-      } else {
-        localStorage.setItem('github', `${file.github_user}`);
-        localStorage.setItem('linkedin', `${file.github}`);
-        localStorage.setItem('github', `${file.github}`);
-      }
-    }
-  }, [file, unsavedFiles]);
 
   const style = {
     transform: toggle ? 'rotate(-180deg)' : '',
@@ -89,23 +71,36 @@ export default function ProjectOverview(props) {
     localStorage.setItem('time_stamp', String(moment(Date.now()).format()));
   };
 
-  const handleChangeGithub = (e) => {
-    setGithubId(e.target.value);
-    localStorage.setItem('github', `${e.target.value}`);
+  const handleChange = (e) => {
+    console.log(e);
+    switch (e.target.id) {
+      case 'github_user':
+        setGithubId(e.target.value);
+        break;
+      case 'linkedin':
+        setLinedInId(e.target.value);
+        break;
+      case 'email':
+        setEmail(e.target.value);
+        break;
+      default:
+        break;
+    }
+    localStorage.setItem(`${e.target.id}`, `${e.target.value}`);
     updateTimeStamp();
   };
 
-  const handleChangeLinkedInId = (e) => {
-    setLinedInId(e.target.value);
-    localStorage.setItem('linkedin', `${e.target.value}`);
-    updateTimeStamp();
-  };
+  // const handleChangeLinkedInId = (e) => {
+  //   setLinedInId(e.target.value);
+  //   localStorage.setItem('linkedin', `${e.target.value}`);
+  //   updateTimeStamp();
+  // };
 
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
-    localStorage.setItem('email', `${e.target.value}`);
-    updateTimeStamp();
-  };
+  // const handleChangeEmail = (e) => {
+  //   setEmail(e.target.value);
+  //   localStorage.setItem('email', `${e.target.value}`);
+  //   updateTimeStamp();
+  // };
 
   return (
     <Container className={classes.column}>
@@ -116,39 +111,48 @@ export default function ProjectOverview(props) {
       <Divider />
       <Collapse in={toggle}>
         <Typography variant='body1'>
-          This is information stored in your user profile. In most projects it
-          will be the same however there may where there may be an exception to
-          that. For instance if you are writing a readme for a joint project
-          that is stored in someone elses Github account you will want to change
+          This is information is initially retrieved from your user profile. In
+          most projects it will be the same however there may be situations
+          where you will want to change this. For example if you are writing a
+          readme for a joint project with another person and the repository is
+          stored in the other person's Github account you will want to change
           the Github username to their username so it generates the correct
           shields. Otherwise they will all read either "0" or "none" depending
-          on which shield it is.
+          on which shield it is. Updating your profile does NOT change the
+          values for existing readme files. It only updates what will be used
+          when creating a new readme after you make the change to your profile.
         </Typography>
       </Collapse>
-      <TextField
-        className={classes.spacing}
-        variant='outlined'
-        id='githubId'
-        value={githubId}
-        label='Github Username'
-        onChange={handleChangeGithub}
-      />
-      <TextField
-        className={classes.spacing}
-        variant='outlined'
-        id='linkedInId'
-        value={linkedInId}
-        label='LinkedIn URL'
-        onChange={handleChangeLinkedInId}
-      />
-      <TextField
-        className={classes.spacing}
-        variant='outlined'
-        id='email'
-        value={email}
-        label='Email'
-        onChange={handleChangeEmail}
-      />
+      {props.file ? (
+        <>
+          <TextField
+            className={classes.spacing}
+            variant='outlined'
+            id='github_user'
+            value={githubId}
+            label='Github Username'
+            onChange={handleChange}
+          />
+          <TextField
+            className={classes.spacing}
+            variant='outlined'
+            id='linkedin'
+            value={linkedInId}
+            label='LinkedIn URL'
+            onChange={handleChange}
+          />
+          <TextField
+            className={classes.spacing}
+            variant='outlined'
+            id='email'
+            value={email}
+            label='Email'
+            onChange={handleChange}
+          />
+        </>
+      ) : (
+        ''
+      )}
     </Container>
   );
 }

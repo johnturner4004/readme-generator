@@ -46,7 +46,6 @@ export default function Form() {
   const pathId = Number(pathIn.id);
 
   const file = useSelector(store => store.readme.selected[0]);
-  console.log(file);
 
   useEffect(() => {
     const checkId = (id) => {
@@ -63,7 +62,7 @@ export default function Form() {
       <Container className={classes.oneColumn}>
         {file ? <ProfileData file={file} /> : ''}
         <Divider className={classes.divider} />
-        {/* <ProjectData file={file} /> */}
+        {file ? <ProjectData file={file} /> : ''}
       </Container>
       <Divider orientation='vertical' variant='fullWidth' flexItem />
       <Container className={classes.twoColumn}>

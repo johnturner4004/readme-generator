@@ -6,7 +6,8 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import { useEffect, useState } from 'react';
+import moment from 'moment';
+import { useState } from 'react';
 import { theme } from '../../../Theme/Theme';
 
 const useStyles = makeStyles(() => ({
@@ -59,47 +60,81 @@ const useStyles = makeStyles(() => ({
 export default function ProjectData(props) {
   const classes = useStyles();
 
-  // const file = useSelector((store) => store.readme.selected[0]);
-  const file = props.file;
-  console.log(file);
-
-  const [githubRepo, setGithubRepo] = useState('');
-  const [description, setDescription] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [prerequisites, setPrerequisites] = useState('');
-  const [installation, setInstillation] = useState('');
-  const [usage, setUsage] = useState('');
-  const [acknowledgments, setAcknowledgments] = useState('');
+  const [githubRepo, setGithubRepo] = useState(
+    localStorage.time_stamp && localStorage.github_repository_name
+      ? localStorage.github_repository_name
+      : props.file.github_repository_name,
+  );
+  const [description, setDescription] = useState(
+    localStorage.time_stamp && localStorage.description
+      ? localStorage.description
+      : props.file.description,
+  );
+  const [imageUrl, setImageUrl] = useState(
+    localStorage.time_stamp && localStorage.image_url
+      ? localStorage.image_url
+      : props.file.image_url,
+  );
+  const [prerequisites, setPrerequisites] = useState(
+    localStorage.time_stamp && localStorage.prerequisites
+      ? localStorage.prerequisites
+      : props.file.prerequisites,
+  );
+  const [installation, setInstillation] = useState(
+    localStorage.time_stamp && localStorage.installation
+      ? localStorage.installation
+      : props.file.installation,
+  );
+  const [usage, setUsage] = useState(
+    localStorage.time_stamp && localStorage.usage
+      ? localStorage.usage
+      : props.file.usage,
+  );
+  const [acknowledgements, setAcknowledgements] = useState(
+    localStorage.time_stamp && localStorage.acknowledgements
+      ? localStorage.acknowledgements
+      : props.file.acknowledgements,
+  );
   const [toggle, setToggle] = useState(false);
-  const unsavedFiles = localStorage.unsavedFiles === 'true';
-
-  useEffect(() => {
-    if (unsavedFiles) {
-      setGithubRepo(localStorage.githubRepo);
-      setDescription(localStorage.description);
-      setImageUrl(localStorage.setImageUrl);
-      setPrerequisites(localStorage.prerequisites);
-      setInstillation(localStorage.installation);
-      setUsage(localStorage.usage);
-      setAcknowledgments(localStorage.acknowledgments);
-    } else {
-      localStorage.setItem('github_repository_name',`${file.github_repository_name}`);
-      localStorage.setItem('description', `${file.description}`);
-      localStorage.setItem('image_url', `${file.image_url}`);
-      localStorage.setItem('prerequisites', `${file.prerequisites}`);
-      localStorage.setItem('installation', `${file.installation}`);
-      localStorage.setItem('usage', `${file.usage}`);
-      localStorage.setItem('acknowledgments', `${file.acknowledgments}`);
-    }
-  }, [file, unsavedFiles]);
 
   const style = {
     transform: toggle ? 'rotate(-180deg)' : '',
     transition: 'transform 500ms ease',
   };
 
+  const updateTimeStamp = () => {
+    localStorage.setItem('time_stamp', String(moment(Date.now()).format()));
+  };
+
   const handleChange = (e) => {
     console.log(e);
+    switch (e.target.id) {
+      case 'github_repository_name':
+        setGithubRepo(e.target.value);
+        break;
+      case 'description':
+        setDescription(e.target.value);
+        break;
+      case 'image_url':
+        setImageUrl(e.target.value);
+        break;
+      case 'prerequisites':
+        setPrerequisites(e.target.value);
+        break;
+      case 'installation':
+        setInstillation(e.target.value);
+        break;
+      case 'usage':
+        setUsage(e.target.value);
+        break;
+      case 'acknowledgements':
+        setAcknowledgements(e.target.value);
+        break;
+      default:
+        break;
+    }
+    localStorage.setItem(`${e.target.id}`, e.target.value);
+    updateTimeStamp();
   };
 
   return (
@@ -117,13 +152,13 @@ export default function ProjectData(props) {
           auto expand if you need more space. Using{' '}
           <kbd className={classes.key}>Enter</kbd> or{' '}
           <kbd className={classes.key}>return</kbd> will give you a new line if
-          you want multiple paragraphs or list items.
+          you want to use multiple paragraphs or to make a list of items.
         </Typography>
       </Collapse>
       <TextField
         className={classes.spacing}
         variant='outlined'
-        id='githubRepo'
+        id='github_repository_name'
         label='Github Repository Name'
         value={githubRepo}
         onChange={handleChange}
@@ -136,6 +171,7 @@ export default function ProjectData(props) {
         id='description'
         label='Description'
         value={description}
+        onChange={handleChange}
       />
       <TextField
         className={classes.spacing}
@@ -143,6 +179,7 @@ export default function ProjectData(props) {
         id='imageUrl'
         label='Image URL'
         value={imageUrl}
+        onChange={handleChange}
       />
       <TextField
         multiline
@@ -153,6 +190,7 @@ export default function ProjectData(props) {
         label='Prerequisites'
         placeholder='List any software, installation instructions for that software, and/or sources for that software that a person would need to install before attempting to replicate your project'
         value={prerequisites}
+        onChange={handleChange}
       />
       <TextField
         multiline
@@ -163,6 +201,7 @@ export default function ProjectData(props) {
         label='Installation'
         placeholder='List the instructions a person would need to follow to get your project up and running'
         value={installation}
+        onChange={handleChange}
       />
       <TextField
         multiline
@@ -173,16 +212,18 @@ export default function ProjectData(props) {
         label='Usage'
         placeholder='Tell a person how to use your project. List steps if necessary to use your project'
         value={usage}
+        onChange={handleChange}
       />
       <TextField
         multiline
         minRows={5}
         className={classes.spacing}
         variant='outlined'
-        id='acknowledgments'
-        label='Acknowledgments'
+        id='acknowledgements'
+        label='Acknowledgements'
         placeholder='Who helped you make this project a reality? Friends? Family? Contributors? Instructors?'
-        value={acknowledgments}
+        value={acknowledgements}
+        onChange={handleChange}
       />
     </Container>
   );
