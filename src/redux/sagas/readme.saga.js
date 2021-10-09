@@ -12,11 +12,8 @@ function* getReadmeList() {
 
 function* getSelectedReadme(action) {
   try{
-    console.log('hello', action.payload);
     const id = action.payload.id
-    yield console.log(id);
     const response = yield axios.get(`api/readme/${id}`);
-    yield console.log(response.data);
     yield put({ type: 'SET_SELECTED_FILE', payload: response.data });
   } catch (error) {
     console.log(`Error getting selected file: ${error}`);

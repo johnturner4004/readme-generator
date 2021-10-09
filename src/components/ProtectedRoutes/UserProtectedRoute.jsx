@@ -13,8 +13,6 @@ export default function ProtectedRoute(props) {
 
   const ComponentToProtect = props.component || (() => props.children);
 
-  console.log(`Component to protect: ${ComponentToProtect}`);
-
   let ComponentToShow;
 
   if (user.id) {

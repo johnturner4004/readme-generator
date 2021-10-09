@@ -6,6 +6,9 @@ import ProfileData from "./FormComponents/ProfileData";
 import ProjectData from "./FormComponents/ProjectData";
 import LicenseList from "./LicenseList";
 import TechList from "./TechList";
+import { useParams } from 'react-router';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   formCard: {
@@ -38,13 +41,29 @@ const useStyles = makeStyles({
 
 export default function Form() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const pathIn = useParams();
+  const pathId = Number(pathIn.id);
+
+  const file = useSelector(store => store.readme.selected[0]);
+  console.log(file);
+
+  useEffect(() => {
+    const checkId = (id) => {
+      id = Number(id);
+      if (id) {
+        dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: id } });
+      } 
+    };
+    checkId(Number(pathId) !== 0 ? Number(pathId) : '');
+  }, [pathId, dispatch]);
 
   return (
     <Card className={classes.formCard}>
       <Container className={classes.oneColumn}>
-        <ProfileData />
+        {file ? <ProfileData file={file} /> : ''}
         <Divider className={classes.divider} />
-        <ProjectData />
+        {/* <ProjectData file={file} /> */}
       </Container>
       <Divider orientation='vertical' variant='fullWidth' flexItem />
       <Container className={classes.twoColumn}>

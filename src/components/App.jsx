@@ -1,20 +1,17 @@
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/styles/makeStyles';
-import Header from './layout/Header';
-import Login from './views/Login';
-import {
-  HashRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
-import Generator from './views/Generator';
-import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
-import Registration from "./views/Profile";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {
+  HashRouter as Router, Redirect, Route, Switch
+} from 'react-router-dom';
+import Header from './layout/Header';
+import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
+import Generator from './views/Generator';
+import Login from './views/Login';
+import Registration from "./views/Profile";
 import ProjectSelect from './views/ProjectSelect';
-import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles({
   page: {

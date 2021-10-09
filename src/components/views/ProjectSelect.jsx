@@ -5,9 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 const useStyles = makeStyles({
@@ -97,7 +96,7 @@ export default function ProjectSelect() {
       );
       history.push(`/generator/${maxId + 1}`);
     } else if (readmeId !== '') {
-      dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: readmeId }});
+      dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: readmeId } });
       history.push(`/generator/${readmeId}`);
     } else {
       setTextHelper(missingInput);
