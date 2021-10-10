@@ -46,52 +46,41 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-//project name
-
-// DONE  github repo
-// DONE description
-// DONE image url
-// CHANGE TO HEADER getting started
-// DONE prerequisites
-// DONE installation
-// DONE usage
-// DONE acknowledgements
-
 export default function ProjectData(props) {
   const classes = useStyles();
 
   const [githubRepo, setGithubRepo] = useState(
-    localStorage.time_stamp && localStorage.github_repository_name
+    localStorage.unsavedFiles && localStorage.github_repository_name
       ? localStorage.github_repository_name
       : props.file.github_repository_name,
   );
   const [description, setDescription] = useState(
-    localStorage.time_stamp && localStorage.description
+    localStorage.unsavedFiles && localStorage.description
       ? localStorage.description
       : props.file.description,
   );
   const [imageUrl, setImageUrl] = useState(
-    localStorage.time_stamp && localStorage.image_url
+    localStorage.unsavedFiles && localStorage.image_url
       ? localStorage.image_url
       : props.file.image_url,
   );
   const [prerequisites, setPrerequisites] = useState(
-    localStorage.time_stamp && localStorage.prerequisites
+    localStorage.unsavedFiles && localStorage.prerequisites
       ? localStorage.prerequisites
       : props.file.prerequisites,
   );
   const [installation, setInstillation] = useState(
-    localStorage.time_stamp && localStorage.installation
+    localStorage.unsavedFiles && localStorage.installation
       ? localStorage.installation
       : props.file.installation,
   );
   const [usage, setUsage] = useState(
-    localStorage.time_stamp && localStorage.usage
+    localStorage.unsavedFiles && localStorage.usage
       ? localStorage.usage
       : props.file.usage,
   );
   const [acknowledgements, setAcknowledgements] = useState(
-    localStorage.time_stamp && localStorage.acknowledgements
+    localStorage.unsavedFiles && localStorage.acknowledgements
       ? localStorage.acknowledgements
       : props.file.acknowledgements,
   );

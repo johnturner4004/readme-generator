@@ -24,7 +24,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
-  const sqlText = `SELECT rd.*, json_agg(tl.*), l.* FROM readmedata AS rd 
+  const sqlText = `SELECT rd.*, json_agg(tl.*) as selected_tech, l.* FROM readmedata AS rd 
 	LEFT JOIN licenses AS l ON rd.licenseid = l.id
 	LEFT JOIN techjoin AS tj ON rd.id = tj.readmeid
 	LEFT JOIN technologieslist AS tl ON tj.techid = tl.id

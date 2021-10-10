@@ -66,7 +66,7 @@ export default function Form() {
       </Container>
       <Divider orientation='vertical' variant='fullWidth' flexItem />
       <Container className={classes.twoColumn}>
-        <TechList />
+        {file ? <TechList file={file} /> : ''}
         <Divider />
         <LicenseList />
       </Container>
