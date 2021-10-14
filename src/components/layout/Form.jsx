@@ -68,7 +68,7 @@ export default function Form() {
       <Container className={classes.twoColumn}>
         {file ? <TechList file={file} /> : ''}
         <Divider />
-        <LicenseList />
+        {file ? <LicenseList file={file} /> : ''}
       </Container>
     </Card>
   );

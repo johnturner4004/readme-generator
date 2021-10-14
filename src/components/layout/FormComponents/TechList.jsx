@@ -27,9 +27,7 @@ const useStyles = makeStyles({
 export default function TechList(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const selectedTech = props.file.selected_tech;
   const unsavedFiles = localStorage.unsavedFiles === 'true';
-  // let techArr = [];
 
   const getTech = () => {
     if (unsavedFiles && localStorage.selected_tech) {
