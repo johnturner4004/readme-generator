@@ -3,6 +3,7 @@ import makeStyles from "@material-ui/styles/makeStyles";
 import ReactMarkdown from "react-markdown";
 import { useSelector } from "react-redux";
 import rehypeRaw from 'rehype-raw';
+import MarkdownCode from "./MarkdownCode";
 
 const useStyles = makeStyles({
   previewCard: {
@@ -12,14 +13,15 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MDPreview() {
+export default function MDPreview(props) {
   const classes = useStyles();
   const store = useSelector(store => store);
+  const file = props.file;
 
   return (
     <Card className={classes.previewCard}>
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {store.shieldCode}
+        {MarkdownCode(file)}
       </ReactMarkdown>
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {store.overviewCode}

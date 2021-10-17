@@ -2,13 +2,10 @@ import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import makeStyles from "@material-ui/styles/makeStyles";
+import LicenseList from "./FormComponents/LicenseList";
 import ProfileData from "./FormComponents/ProfileData";
 import ProjectData from "./FormComponents/ProjectData";
-import LicenseList from "./FormComponents/LicenseList";
 import TechList from "./FormComponents/TechList";
-import { useParams } from 'react-router';
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   formCard: {
@@ -39,23 +36,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Form() {
+export default function Form(props) {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const pathIn = useParams();
-  const pathId = Number(pathIn.id);
-
-  const file = useSelector(store => store.readme.selected[0]);
-
-  useEffect(() => {
-    const checkId = (id) => {
-      id = Number(id);
-      if (id) {
-        dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: id } });
-      } 
-    };
-    checkId(Number(pathId) !== 0 ? Number(pathId) : '');
-  }, [pathId, dispatch]);
+  const file = props.file
 
   return (
     <Card className={classes.formCard}>

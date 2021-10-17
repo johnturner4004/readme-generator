@@ -1,8 +1,8 @@
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/styles';
-import { useSelector } from 'react-redux';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import MarkdownCode from './MarkdownCode';
 
 const useStyles = makeStyles({
   codeCard: {
@@ -14,37 +14,19 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CodeDisplay() {
+export default function CodeDisplay(props) {
   const classes = useStyles();
-  const store = useSelector(store => store);
+  const file = props.file;
 
   return(
     <Card className={classes.codeCard}>
-      <div>
-      {store ?
       <SyntaxHighlighter
       wrapLongLines={true}
       language="markdown"
       style={atomDark}
       >
-{store.shieldCode +
-store.overviewCode +
-`
-## Built With
-
-` +
-store.technologiesReducer.htmlTagList +
-store.gettingStartedCode +
-`
-
-## License
-
-` +
-store.licensesReducer.htmlTag +
-store.conclusionCode}
+{MarkdownCode(file)}
       </SyntaxHighlighter>
-      :""}
-      </div>
     </Card>
   )
 }

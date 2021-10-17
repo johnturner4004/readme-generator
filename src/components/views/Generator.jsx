@@ -5,6 +5,10 @@ import CodeDisplay from '../layout/CodeDisplay';
 import Form from '../layout/Form';
 import MDPreview from '../layout/MDPreview';
 import ProjectName from '../layout/ProjectName';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   page: {
@@ -25,17 +29,32 @@ const useStyles = makeStyles({
 
 export default function Generator() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const pathIn = useParams();
+  const pathId = Number(pathIn.id);
+
+  const file = useSelector(store => store.readme.selected[0]);
+
+  useEffect(() => {
+    const checkId = (id) => {
+      id = Number(id);
+      if (id) {
+        dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: id } });
+      } 
+    };
+    checkId(Number(pathId) !== 0 ? Number(pathId) : '');
+  }, [pathId, dispatch]);
 
   return (
     <Paper className={classes.paper}>
       <ProjectName />
-      <Form />
+      {file ? <Form file={file} /> : ''}
       <Grid container className={classes.gridContainer} direction='row'>
         <Grid item xs={12} sm={6}>
-          <CodeDisplay />
+          {file ? <CodeDisplay file={file} /> : ''}
         </Grid>
         <Grid item xs={12} sm={6}>
-          <MDPreview />
+          {file ? <MDPreview file={file} /> : ''}
         </Grid>
       </Grid>
     </Paper>
