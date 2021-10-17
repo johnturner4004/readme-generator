@@ -13,42 +13,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MDPreview(props) {
+export default function MDPreview() {
   const classes = useStyles();
-  const store = useSelector(store => store);
-  const file = props.file;
 
   return (
     <Card className={classes.previewCard}>
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {MarkdownCode(file)}
-      </ReactMarkdown>
-      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {store.overviewCode}
-      </ReactMarkdown>
-      <ReactMarkdown 
-      children ={
-`
-
-## Built With
-
-${store.technologiesReducer.htmlTagList}`}
-      rehypePlugins={[rehypeRaw]}>
-      </ReactMarkdown>
-      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {store.gettingStartedCode}
-      </ReactMarkdown>
-      <ReactMarkdown 
-      children={
-`
-
-## License
-
-${store.licensesReducer.htmlTag}`}
-      rehypePlugins={[rehypeRaw]}>
-      </ReactMarkdown>
-      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-        {store.conclusionCode}
+        {MarkdownCode()}
       </ReactMarkdown>
     </Card>
   );

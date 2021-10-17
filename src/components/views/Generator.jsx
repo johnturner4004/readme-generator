@@ -33,7 +33,7 @@ export default function Generator() {
   const pathIn = useParams();
   const pathId = Number(pathIn.id);
 
-  const file = useSelector(store => store.readme.selected[0]);
+  const file = useSelector(store => store.readme.selected);
 
   useEffect(() => {
     const checkId = (id) => {
@@ -51,10 +51,10 @@ export default function Generator() {
       {file ? <Form file={file} /> : ''}
       <Grid container className={classes.gridContainer} direction='row'>
         <Grid item xs={12} sm={6}>
-          {file ? <CodeDisplay file={file} /> : ''}
+          {file ? <CodeDisplay /> : ''}
         </Grid>
         <Grid item xs={12} sm={6}>
-          {file ? <MDPreview file={file} /> : ''}
+          {file ? <MDPreview /> : ''}
         </Grid>
       </Grid>
     </Paper>

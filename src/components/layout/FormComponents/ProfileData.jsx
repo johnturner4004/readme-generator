@@ -9,6 +9,7 @@ import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import moment from 'moment';
 import { useState } from 'react';
 import { theme } from '../../../Theme/Theme';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles(() => ({
   column: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles(() => ({
 
 export default function ProjectOverview(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [githubId, setGithubId] = useState(
     localStorage.time_stamp && localStorage.github_user
@@ -75,12 +77,15 @@ export default function ProjectOverview(props) {
     switch (e.target.id) {
       case 'github_user':
         setGithubId(e.target.value);
+        dispatch({ type: 'UPDATE_GITHUB', payload: { github_user: e.target.value }})
         break;
-      case 'linkedin':
-        setLinedInId(e.target.value);
-        break;
-      case 'email':
-        setEmail(e.target.value);
+        case 'linkedin':
+          setLinedInId(e.target.value);
+          dispatch({ type: 'UPDATE_LINKEDIN', payload: { linkedin: e.target.value }})
+          break;
+          case 'email':
+            setEmail(e.target.value);
+            dispatch({ type: 'UPDATE_EMAIL', payload: { email: e.target.value }})
         break;
       default:
         break;

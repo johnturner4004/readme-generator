@@ -14,9 +14,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CodeDisplay(props) {
+export default function CodeDisplay() {
   const classes = useStyles();
-  const file = props.file;
+  
 
   return(
     <Card className={classes.codeCard}>
@@ -25,7 +25,7 @@ export default function CodeDisplay(props) {
       language="markdown"
       style={atomDark}
       >
-{MarkdownCode(file)}
+{MarkdownCode()}
       </SyntaxHighlighter>
     </Card>
   )
