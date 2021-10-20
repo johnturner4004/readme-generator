@@ -2,6 +2,7 @@ import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import makeStyles from "@material-ui/styles/makeStyles";
+import { useEffect } from "react";
 import LicenseList from "./FormComponents/LicenseList";
 import ProfileData from "./FormComponents/ProfileData";
 import ProjectData from "./FormComponents/ProjectData";
@@ -39,6 +40,10 @@ const useStyles = makeStyles({
 export default function Form(props) {
   const classes = useStyles();
   const file = props.file
+
+  useEffect(() => {
+    localStorage.setItem('project_name', file.project_name)
+  }, [])
 
   return (
     <Card className={classes.formCard}>

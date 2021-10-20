@@ -1,13 +1,15 @@
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import Modal from '@material-ui/core/Modal';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
   paper: {
@@ -31,8 +33,19 @@ const useStyles = makeStyles({
     padding: 10,
   },
   button: {
-    margin: 10,
+    sx: {
+      margin: 10,
+    },
   },
+  modal: {
+    position: 'absolute',
+    width: 400,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    padding: '20px',
+    outline: 'none',
+  }
 });
 
 export default function ProjectSelect() {
@@ -47,6 +60,7 @@ export default function ProjectSelect() {
   const [textHelper, setTextHelper] = useState('');
   const [selectHelper, setSelectHelper] = useState('');
   const [error, setError] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const inputHelper =
     'You can only use one input. Clear current selection to change';
@@ -88,13 +102,13 @@ export default function ProjectSelect() {
   const handleSubmit = () => {
     if (newProjectName !== '') {
       dispatch({ type: 'CREATE_NEW_FILE', payload: newProjectName });
-      const maxId = Math.max.apply(
-        Math,
-        existingProjects.map(function (existingProjects) {
-          return existingProjects.id;
-        }),
-      );
-      history.push(`/generator/${maxId + 1}`);
+      // const maxId = Math.max.apply(
+      //   Math,
+      //   existingProjects.map(function (existingProjects) {
+      //     return existingProjects.id;
+      //   }),
+      // );
+      // history.push(`/generator/${maxId + 1}`);
     } else if (readmeId !== '') {
       dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: readmeId } });
       history.push(`/generator/${readmeId}`);
@@ -105,60 +119,116 @@ export default function ProjectSelect() {
     }
   };
 
+  const handleModal = () => {
+    setOpen(false);
+  };
+
+  const handleResume = () => {
+    dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: localStorage.id } });
+    history.push(`/generator/${localStorage.id}`);
+  };
+
+  const handleClear = () => {
+    localStorage.clear();
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (localStorage.time_stamp) {
+    setOpen(true);
+    dispatch({ type: 'GET_SELECTED_FILE', payload: { id: Number(localStorage.id) } });
+    }
+  }, []);
+
   return (
-    <Paper className={classes.paper}>
-      <Card className={classes.card}>
-        <Typography className={classes.text} variant='h4' component='p'>
-          Would you like to
+    <Container>
+      <Modal
+        open={open}
+      >
+        <Card className={classes.modal} >
+        <Typography>
+          You have stored unsaved changes to the readme file for the project named "{localStorage.project_name}" would you like to resume making changes or clear your unsaved changes? This action cannot be undone.
         </Typography>
-        <TextField
-          fullWidth
-          variant='outlined'
-          id='newReadme'
-          label='Create new readme'
-          onChange={handleTextChange}
-          disabled={disableText}
-          error={error}
-          helperText={textHelper}
-        />
-        <Typography className={classes.text} variant='h4' component='p'>
-          or
-        </Typography>
-        <TextField
-          select
-          fullWidth
-          sx={{ minWidth: '250px' }}
-          variant='outlined'
-          id='existingReadme'
-          value={readmeId}
-          label={'Edit existing readme'}
-          onChange={handleSelectChange}
-          disabled={disableSelect}
-          error={error}
-          helperText={selectHelper}
-        >
-          <MenuItem value=''>
-            <em>None</em>
-          </MenuItem>
-          {existingProjects !== []
-            ? existingProjects.map((file) => {
-                return (
-                  <MenuItem value={file.id} key={file.id}>
-                    {file.project_name}
-                  </MenuItem>
-                );
-              })
-            : ''}
-        </TextField>
         <Button
-          className={classes.button}
-          variant='contained'
-          color='primary'
-          onClick={handleSubmit}
+          sx={{
+            marginTop: 2,
+            marginRight: 2,
+          }}
+          variant="contained"
+          color="success"
+          onClick={handleResume}
         >
-          Submit
+          Resume
         </Button>
-      </Card>
-    </Paper>
+        <Button
+          sx={{
+            marginTop: 2,
+            marginRight: 2,
+          }}
+          variant="contained"
+          color="error"
+          onClick={handleClear}
+        >
+          Clear
+        </Button>
+        </Card>
+      </Modal>
+      <Paper className={classes.paper}>
+        <Card className={classes.card}>
+          <Typography className={classes.text} variant='h4' component='p'>
+            Would you like to
+          </Typography>
+          <TextField
+            fullWidth
+            variant='outlined'
+            id='newReadme'
+            label='Create new readme'
+            onChange={handleTextChange}
+            disabled={disableText}
+            error={error}
+            helperText={textHelper}
+          />
+          <Typography className={classes.text} variant='h4' component='p'>
+            or
+          </Typography>
+          <TextField
+            select
+            fullWidth
+            sx={{ minWidth: '250px' }}
+            variant='outlined'
+            id='existingReadme'
+            value={readmeId}
+            label={'Edit existing readme'}
+            onChange={handleSelectChange}
+            disabled={disableSelect}
+            error={error}
+            helperText={selectHelper}
+          >
+            <MenuItem value=''>
+              <em>None</em>
+            </MenuItem>
+            {existingProjects !== []
+              ? existingProjects.map((file) => {
+                  return (
+                    <MenuItem value={file.id} key={file.id}>
+                      {file.project_name}
+                    </MenuItem>
+                  );
+                })
+              : ''}
+          </TextField>
+          <Button
+          sx={{
+            marginTop: 2,
+          }}
+            variant='contained'
+            color='primary'
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </Card>
+      </Paper>
+    </Container>
   );
 }
