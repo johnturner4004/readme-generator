@@ -1,17 +1,21 @@
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
-  HashRouter as Router, Redirect, Route, Switch
+  HashRouter as Router,
+  Redirect,
+  Route,
+  Switch,
 } from 'react-router-dom';
 import Header from './layout/Header';
 import UserProtectedRoute from './ProtectedRoutes/UserProtectedRoute';
 import Generator from './views/Generator';
 import Login from './views/Login';
-import Registration from "./views/Profile";
+import Registration from './views/Profile';
 import ProjectSelect from './views/ProjectSelect';
+import Loading from './views/Loading';
 
 const useStyles = makeStyles({
   page: {
@@ -43,7 +47,11 @@ function App() {
       <Router>
         <Switch>
           <Redirect exact from='/' to='/login' />
-          <UserProtectedRoute exact path='/login' authRedirect='/project-select'>
+          <UserProtectedRoute
+            exact
+            path='/login'
+            authRedirect='/project-select'
+          >
             <Login />
           </UserProtectedRoute>
           <UserProtectedRoute exact path='/generator/:id'>
@@ -51,10 +59,13 @@ function App() {
           </UserProtectedRoute>
           <UserProtectedRoute exact path='/project-select'>
             <ProjectSelect />
-            </UserProtectedRoute>
+          </UserProtectedRoute>
           <Route exact path='/registration'>
             <Registration />
           </Route>
+          <UserProtectedRoute exact path='/loading'>
+            <Loading />
+          </UserProtectedRoute>
           <Route>
             <Typography variant='h2'>404</Typography>
           </Route>

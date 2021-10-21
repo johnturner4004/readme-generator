@@ -111,16 +111,13 @@ export default function ProjectSelect() {
       // history.push(`/generator/${maxId + 1}`);
     } else if (readmeId !== '') {
       dispatch({ type: 'FETCH_SELECTED_FILE', payload: { id: readmeId } });
+      localStorage.setItem('id', readmeId);
       history.push(`/generator/${readmeId}`);
     } else {
       setTextHelper(missingInput);
       setSelectHelper(missingInput);
       setError(true);
     }
-  };
-
-  const handleModal = () => {
-    setOpen(false);
   };
 
   const handleResume = () => {
