@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
+import { push } from 'react-router-redux';
 
 function* getReadmeList() {
   try{
@@ -24,7 +25,8 @@ function* createNewReadme(action) {
   try{
   const projectName = action.payload;
   const response = yield axios.post('api/readme/', { project_name: projectName });
-  const id = response.data[0].id;
+  const id = yield response.data[0].id;
+  yield put(push(`/generator/${id}`))
   yield put({ type: 'FETCH_SELECTED_FILE', payload: { id: id }})
   } catch (error) {
     console.log(`Error creating new file: ${error}`);

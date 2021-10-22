@@ -102,6 +102,7 @@ export default function ProjectSelect() {
   const handleSubmit = () => {
     if (newProjectName !== '') {
       dispatch({ type: 'CREATE_NEW_FILE', payload: newProjectName });
+      history.push('/loading')
       // const maxId = Math.max.apply(
       //   Math,
       //   existingProjects.map(function (existingProjects) {
@@ -135,7 +136,7 @@ export default function ProjectSelect() {
     setOpen(true);
     dispatch({ type: 'GET_SELECTED_FILE', payload: { id: Number(localStorage.id) } });
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>
